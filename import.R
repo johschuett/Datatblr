@@ -45,7 +45,7 @@ type_s <- list()
 
 .a <- 1 # Current variable
 
-for (.x in varType) {
+for (.el in varType) {
   class <- c()
   type <- c()
   name <- c()
@@ -68,11 +68,11 @@ for (.x in varType) {
   }
 
   # As already mentioned, Multiple-choice variables get treated like Matrix variables
-  if (.x == "m") {
+  if (.el == "m") {
     currType <- "type_f"
   }
   else {
-    currType <- paste("type_", .x, sep="")
+    currType <- paste("type_", .el, sep="")
   }
 
   # Create a data frame out of the collected data and put in into the matching list
@@ -90,5 +90,5 @@ for (.row in 1:nrow(options)) {
 }
 
 # Free memory
-rm(.a, .b, .com, .el, .i, .listLength, .listSyntax, .row, .x, class, currType, endRow,
+rm(.a, .b, .com, .el, .i, .listLength, .listSyntax, .row, class, currType, endRow,
    meta, name, options, text, type, varRow, varType)

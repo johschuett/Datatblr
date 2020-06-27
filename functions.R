@@ -2,7 +2,7 @@
 
 Absquant <- function(var, value) (as.numeric(count(dplyr::filter(data, eval(parse(text = var)) == value))))
 
-Mode <-  function(x, na.rm = FALSE) { # Quelle: https://www.politikwissenschaften.ch/pdf.php?id=11
+Mode <-  function(x, na.rm = FALSE) { # Source: https://www.politikwissenschaften.ch/pdf.php?id=11
   if(na.rm) {
     x = na.omit(x)
   }

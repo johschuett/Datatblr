@@ -40,8 +40,8 @@ for (.row in 1:nrow(twoway)) {
 }
 
 
-for (.x in parameters) {
-  switch(.x,
+for (.el in parameters) {
+  switch(.el,
          mean = handleMean(),
          med = handleMed(),
          mod = handleMod(),

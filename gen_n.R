@@ -1,7 +1,7 @@
 # gen_n.R
 
-for (.x in type_n) {
-  tabTitle <- subset(.x, class == "Q")
+for (.el in type_n) {
+  tabTitle <- subset(.el, class == "Q")
   tabLabel <- tabTitle[1,4]
   tabTitle <- tabTitle[1,3]
 
@@ -29,5 +29,5 @@ for (.x in type_n) {
 }
 
 # Free memory
-rm(.com, getNumbers, numbers, numMax, numMean, numMed, numMin,
+rm(.com, .el, getNumbers, numbers, numMax, numMean, numMed, numMin,
    numMod, numSd, tabLabel, table, tabTitle)

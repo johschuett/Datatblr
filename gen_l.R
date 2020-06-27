@@ -1,7 +1,7 @@
 # gen_l.R
 
-for (.x in type_l) {
-  tabTitle <- subset(.x, class == "Q")
+for (.el in type_l) {
+  tabTitle <- subset(.el, class == "Q")
   tabLabel <- tabTitle[1,4]
   tabTitle <- tabTitle[1,3]
 
@@ -13,11 +13,11 @@ for (.x in type_l) {
   valCumRel <- c()
 
   .i <- 1
-  for(.row in 1:nrow(.x)) {
-    if (.x[.row, "class"] == "Q") cVar <- as.character(.x[.row, "name"])
-    if (.x[.row, "class"] == "A") {
-      val[.i] <- as.character(.x[.row, "name"])
-      valLabel[.i] <- as.character(.x[.row, "text"])
+  for(.row in 1:nrow(.el)) {
+    if (.el[.row, "class"] == "Q") cVar <- as.character(.el[.row, "name"])
+    if (.el[.row, "class"] == "A") {
+      val[.i] <- as.character(.el[.row, "name"])
+      valLabel[.i] <- as.character(.el[.row, "text"])
       .i <- .i + 1
     }
   }
@@ -32,8 +32,8 @@ for (.x in type_l) {
   }
 
   .i <- 1
-  for (.row in 1:nrow(.x)) {
-    if (.x[.row, "class"] == "A") {
+  for (.row in 1:nrow(.el)) {
+    if (.el[.row, "class"] == "A") {
       .com <- paste("valAbs[", .i ,"] <- Absquant('", cVar ,"', ", val[.i] ,")", sep = "")
       eval(parse(text = .com))
       valRel[.i] <- round(valAbs[.i] / total * 100, 2)
@@ -46,7 +46,7 @@ for (.x in type_l) {
   pack <- ""
 
   .i <- 1
-  for (.x in val) {
+  for (.el in val) {
     valRel[.i] <- format(as.numeric(valRel[.i]), nsmall = 2)
     valCumRel[.i] <- format(as.numeric(valCumRel[.i]), nsmall = 2)
 
@@ -71,5 +71,5 @@ for (.x in type_l) {
 }
 
 # Free memory
-rm(.com, .i, .row, absNa, cVar, pack, relTotal, tabLabel,
+rm(.com, .i, .el, .row, absNa, cVar, pack, relTotal, tabLabel,
    tabTitle, total, val, valAbs, valCumAbs, valCumRel, valLabel, valRel)
