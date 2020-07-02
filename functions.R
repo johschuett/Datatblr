@@ -1,7 +1,10 @@
 # functions.R
+# This script contains functions used by the generator scripts
 
-Absquant <- function(var, value) (as.numeric(count(dplyr::filter(data, eval(parse(text = var)) == value))))
+# Gets the absolute frequency
+Absfreq <- function(var, value) (as.numeric(count(dplyr::filter(data, eval(parse(text = var)) == value))))
 
+# Gets the mode
 Mode <-  function(x, na.rm = FALSE) { # Source: https://www.politikwissenschaften.ch/pdf.php?id=11
   if(na.rm) {
     x = na.omit(x)
@@ -20,11 +23,13 @@ handleMissings <- function(var, cumAbs, varType, val) {
       absCumNa <- tail(cumAbs, n = 1) + absNa
       relCumNa <- format(round(absCumNa / count(data) * 100, 2), nsmall = 2)
 
+      # Handles Matrix and Multiple-choice variables
       if (varType == "f") {
         pack <<- paste(pack, " & Missings & ", absNa ," & ", relNa  ," & ", relCumNa ," \\\\ ", sep = "")
         answerAbs[length(answerAbs) + 1] <<- absNa
         answerCumRel[length(answerCumRel) + 1] <<- relCumNa
       }
+      # Handles Single-choice variables
       else if (varType == "l"){
         pack <<- paste(pack, "Missings & ", absNa ," & ", relNa  ," & ", relCumNa ," \\\\ ", sep = "")
         valAbs[length(valAbs) + 1] <<- absNa

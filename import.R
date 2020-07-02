@@ -1,4 +1,5 @@
 # import.R
+# This script imports the data from the CSV files and sorts them
 
 # Import data from files
 data <- import("csv/data.csv")
@@ -20,7 +21,7 @@ for (.row in 1:nrow(meta)) {
   if (meta[.row,2] == "Q") {
     varType[length(varType) + 1] <- tolower(meta[.row,3])
     varName[length(varName) + 1] <- meta[.row,4]
-    varRow[length(varRow) + 1] <- which(meta$name == varName[length(varName)])
+    varRow[length(varRow) + 1] <- which(meta$name == varName[length(varName)]) # Where does the variable START in the meta data-frame?
   }
 }
 
@@ -34,7 +35,7 @@ for (.el in varRow) {
       break
     }
   }
-  endRow[length(endRow) + 1] <- .el
+  endRow[length(endRow) + 1] <- .el # Where does the variable END in the meta data-frame?
 }
 
 # Create lists for variables
