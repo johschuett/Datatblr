@@ -25,7 +25,4 @@ if (file.exists("prep_output.R")) { source("prep_output.R") } else { stop("Could
 if (file.exists("gen_f_m.R")) { source("gen_f_m.R") } else { stop("Could not call gen_f_m.R!") }
 if (file.exists("gen_l.R")) { source("gen_l.R") } else { stop("Could not call gen_l.R!") }
 if (file.exists("gen_n.R")) { source("gen_n.R") } else { stop("Could not call gen_n.R!") }
-if (exists("twoway")) { # This script is optional
-  if (file.exists("gen_tw.R")) { source("gen_tw.R") } else { stop("Could not call gen_tw.R!") }
-}
 if (file.exists("print_output.R")) { source("print_output.R") } else { stop("Could not call print_output.R!") }
