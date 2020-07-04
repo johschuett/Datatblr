@@ -43,7 +43,7 @@ for (.el in type_f) {
       total <- count(data)
     }
     # Ignore missings
-    if (missings == 2) {
+    else if (missings == 2) {
       .com <- paste("absNa <- as.numeric(count(dplyr::filter(data, (is.na(", .el ,") | ", .el, " %!in% answer))))", sep = "")
       eval(parse(text = .com))
       total <- count(data) - absNa

@@ -68,13 +68,11 @@ for (.el in varType) {
     .i <- .i + 1
   }
 
-  # As already mentioned, Multiple-choice variables get treated like Matrix variables
-  if (.el == "m") {
-    currType <- "type_f"
-  }
-  else {
-    currType <- paste("type_", .el, sep="")
-  }
+  # Get matching list name
+  switch(.el,
+         m = currType <- "type_f", # As already mentioned, Multiple-choice variables get treated like Matrix variables
+         currType <- paste("type_", .el, sep="")
+  )
 
   # Create a data frame out of the collected data and put in into the matching list
   .listLength <- length(eval(parse(text = currType)))
