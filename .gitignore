@@ -35,8 +35,9 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 
-# R Environment Variables
-.Renviron
-
+# R markdown output
 markdown.pdf
 markdown.tex
+
+# R Environment Variables
+.Renviron
