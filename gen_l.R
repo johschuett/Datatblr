@@ -1,5 +1,5 @@
 # gen_l.R
-# This script contains the generator for Single-choice variables
+# This script contains the generator for Single-choice survey variables
 
 for (.el in type_l) {
   # Get the title and label for the table

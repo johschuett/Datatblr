@@ -1,18 +1,20 @@
 # import.R
 # This script imports the data from the CSV files and sorts them
 
-# Import data from files
+# Import data from file
 data <- import("csv/data.csv")
+# Convert missing entries to NAs
 data[data == ""] = NA
+# Import metadata and options from files
 meta <- import("csv/meta.csv")
 options <- import("csv/options.csv")
-if (file.exists("csv/twoway.csv")) { twoway <- import("csv/twoway.csv")}
 
 # Get survey title
 setTitle <- subset(meta, name == "surveyls_title")
 setTitle <- setTitle[1,5]
 
-# Information about the variables
+# Information about the survey variables
+# Possible survey variable types are: Matrix, Multiple-choice, Numeric, Single-choice, String
 varType <- c()
 varName <- c()
 varRow <- c()
@@ -21,7 +23,7 @@ for (.row in 1:nrow(meta)) {
   if (meta[.row,2] == "Q") {
     varType[length(varType) + 1] <- tolower(meta[.row,3])
     varName[length(varName) + 1] <- meta[.row,4]
-    varRow[length(varRow) + 1] <- which(meta$name == varName[length(varName)]) # Where does the variable START in the meta data-frame?
+    varRow[length(varRow) + 1] <- which(meta$name == varName[length(varName)]) # Where does the survey variable START in the meta data-frame?
   }
 }
 
@@ -35,27 +37,27 @@ for (.el in varRow) {
       break
     }
   }
-  endRow[length(endRow) + 1] <- .el # Where does the variable END in the meta data-frame?
+  endRow[length(endRow) + 1] <- .el # Where does the survey variable END in the meta data-frame?
 }
 
-# Create lists for variables
-type_f <- list()
-type_l <- list()
-type_n <- list()
-type_s <- list()
+# Create lists for survey variables
+type_f <- list()  # Matrix / Multiple-choice
+type_l <- list()  # Single-choice
+type_n <- list()  # Numeric
+type_s <- list()  # String (not in use)
 
-.a <- 1 # Current variable
+.a <- 1 # Current survey variable
 
 for (.el in varType) {
-  class <- c()
-  type <- c()
+  class <- c()  # Q (Question), A (Answer) or SQ (Subquestion)
+  type <- c()   # f, m, l, n, s
   name <- c()
   text <- c()
 
   .b <- 1 # Index for class, type, name, text vectors
   .i <- varRow[.a]
 
-  # Iterate through the rows of the current variable until the last row has been reached
+  # Iterate through the rows of the current survey variable and read in the data until the last row has been reached
   repeat {
     if (.i == (endRow[.a] + 1)) break
 
@@ -70,11 +72,11 @@ for (.el in varType) {
 
   # Get matching list name
   switch(.el,
-         m = currType <- "type_f", # As already mentioned, Multiple-choice variables get treated like Matrix variables
+         m = currType <- "type_f", # As already mentioned, Multiple-choice survey variables get treated like Matrix survey variables
          currType <- paste("type_", .el, sep="")
   )
 
-  # Create a data frame out of the collected data and put in into the matching list
+  # Create a data frame out of the collected data and put it into the matching list
   .listLength <- length(eval(parse(text = currType)))
   .listSyntax <- paste(parse(text = currType), "[[", .listLength + 1, "]]", sep = "")
   .com <- paste(.listSyntax, "<-", "cbind.data.frame(class, type, name, text)")

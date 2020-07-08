@@ -1,6 +1,7 @@
 # render.R
+# This script initializes the rendering process of the markdown document
 
-# Set encoding and render markdown file
+# Set encoding
 Sys.setlocale("LC_ALL", "en_US.UTF-8")
 
 # Render markdown document
