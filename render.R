@@ -5,4 +5,4 @@
 Sys.setlocale("LC_ALL", "en_US.UTF-8")
 
 # Render markdown document
-rmarkdown::render("markdown.Rmd", "all", encoding="UTF-8")
+rmarkdown::render("markdown.Rmd", "all", encoding = "UTF-8")

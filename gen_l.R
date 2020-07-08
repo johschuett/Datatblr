@@ -16,7 +16,7 @@ for (.el in type_l) {
 
   # Get the variable name, values and their labels
   .i <- 1
-  for(.row in 1:nrow(.el)) {
+  for (.row in 1:nrow(.el)) {
     if (.el[.row, "class"] == "Q") current_variable <- as.character(.el[.row, "name"])
     if (.el[.row, "class"] == "A") {
       value[.i] <- as.character(.el[.row, "name"])

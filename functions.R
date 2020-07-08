@@ -6,35 +6,35 @@ get_absolute_freq <- function(var, value) (as.numeric(count(dplyr::filter(data, 
 
 # Gets the mode
 get_mode <-  function(x, na.rm = FALSE) { # Source: https://www.politikwissenschaften.ch/pdf.php?id=11
-  if(na.rm) {
-    x = na.omit(x)
+  if (na.rm) {
+    x <- na.omit(x)
   }
-  ux = unique(x)
+  ux <- unique(x)
   return(ux[which.max(tabulate(match(x, ux)))])
 }
 
 # Handles how to treat missing values
-handle_missings <- function(var, cumAbs, varType, val) {
+handle_missings <- function(var, cum_absolute, variable_type, val) {
   if (missings == 1) { # Summarize missing categories
-    .com <- paste("absNa <- as.numeric(count(dplyr::filter(data, (is.na(", var ,") | ", var, " %!in% val))))", sep = "")
+    .com <- paste("absolute_na <- as.numeric(count(dplyr::filter(data, (is.na(", var, ") | ", var, " %!in% val))))", sep = "")
     eval(parse(text = .com))
 
-    if (absNa != 0) {
-      relNa <- format(round(absNa / count(data) * 100, 2), nsmall = 2)
-      absCumNa <- tail(cumAbs, n = 1) + absNa
-      relCumNa <- format(round(absCumNa / count(data) * 100, 2), nsmall = 2)
+    if (absolute_na != 0) {
+      relative_na <- format(round(absolute_na / count(data) * 100, 2), nsmall = 2)
+      absolute_cum_na <- tail(cum_absolute, n = 1) + absolute_na
+      relative_cum_na <- format(round(absolute_cum_na / count(data) * 100, 2), nsmall = 2)
 
       # Handles Matrix and Multiple-choice survey variables
-      if (varType == "f") {
-        pack <<- paste(pack, " & Missings & ", absNa ," & ", relNa  ," & ", relCumNa ," \\\\ ", sep = "")
-        answerAbs[length(answerAbs) + 1] <<- absNa
-        answerCumRel[length(answerCumRel) + 1] <<- relCumNa
+      if (variable_type == "f") {
+        pack <<- paste(pack, " & Missings & ", absolute_na, " & ", relative_na, " & ", relative_cum_na, " \\\\ ", sep = "")
+        answer_absolute[length(answer_absolute) + 1] <<- absolute_na
+        answer_cum_relative[length(answer_cum_relative) + 1] <<- relative_cum_na
       }
       # Handles Single-choice survey variables
-      else if (varType == "l"){
-        pack <<- paste(pack, "Missings & ", absNa ," & ", relNa  ," & ", relCumNa ," \\\\ ", sep = "")
-        valAbs[length(valAbs) + 1] <<- absNa
-        valCumRel[length(valCumRel) + 1] <<- relCumNa
+      else if (variable_type == "l"){
+        pack <<- paste(pack, "Missings & ", absolute_na, " & ", relative_na, " & ", relative_cum_na, " \\\\ ", sep = "")
+        value_absolute[length(value_absolute) + 1] <<- absolute_na
+        value_cum_relative[length(value_cum_relative) + 1] <<- relative_cum_na
       }
     }
   }
