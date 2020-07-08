@@ -2,10 +2,10 @@
 # This script contains functions used by the generator scripts
 
 # Gets the absolute frequency
-Absfreq <- function(var, value) (as.numeric(count(dplyr::filter(data, eval(parse(text = var)) == value))))
+get_absolute_freq <- function(var, value) (as.numeric(count(dplyr::filter(data, eval(parse(text = var)) == value))))
 
 # Gets the mode
-Mode <-  function(x, na.rm = FALSE) { # Source: https://www.politikwissenschaften.ch/pdf.php?id=11
+get_mode <-  function(x, na.rm = FALSE) { # Source: https://www.politikwissenschaften.ch/pdf.php?id=11
   if(na.rm) {
     x = na.omit(x)
   }
@@ -14,7 +14,7 @@ Mode <-  function(x, na.rm = FALSE) { # Source: https://www.politikwissenschafte
 }
 
 # Handles how to treat missing values
-handleMissings <- function(var, cumAbs, varType, val) {
+handle_missings <- function(var, cumAbs, varType, val) {
   if (missings == 1) { # Summarize missing categories
     .com <- paste("absNa <- as.numeric(count(dplyr::filter(data, (is.na(", var ,") | ", var, " %!in% val))))", sep = "")
     eval(parse(text = .com))

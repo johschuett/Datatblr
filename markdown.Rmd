@@ -32,7 +32,7 @@ knitr::read_chunk('main.R')
 ```
 
 ---
-title: `r setTitle`
+title: `r survey_title`
 author: ""
 date: ""
 ---

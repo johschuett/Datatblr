@@ -3,36 +3,36 @@
 
 for (.el in type_n) {
   # Get the title and label for the table
-  tabTitle <- subset(.el, class == "Q")
-  tabLabel <- tabTitle[1,4]
-  tabTitle <- tabTitle[1,3]
+  table_title <- subset(.el, class == "Q")
+  table_label <- table_title[1,4]
+  table_title <- table_title[1,3]
 
   # Clean the data from non-numerical entries
-  getNumbers <- function() {
-    .com <- paste("numbers <- as.numeric(subset(data$", tabTitle, ", !is.na(as.numeric(data$", tabTitle, "))))", sep = "")
+  get_numbers <- function() {
+    .com <- paste("numbers <- as.numeric(subset(data$", table_title, ", !is.na(as.numeric(data$", table_title, "))))", sep = "")
     eval(parse(text= .com))
     return(numbers)
   }
 
-  numbers <- suppress_warnings(getNumbers(), "NAs introduced by coercion")
+  numbers <- suppress_warnings(get_numbers(), "NAs introduced by coercion")
 
   # Calculate the numerical values for the table
-  numMean <- format(round(mean(numbers), 2), nsmall = 2)
-  numMed <- format(round(median(numbers), 2), nsmall = 2)
-  numMod <- format(round(Mode(numbers, na.rm = TRUE), 2), nsmall = 2)
-  numMin <- format(round(min(numbers), 2), nsmall = 2)
-  numMax <- format(round(max(numbers), 2), nsmall = 2)
-  numSd <- format(round(sd(numbers), 2), nsmall = 2)
+  mean_value <- format(round(mean(numbers), 2), nsmall = 2)
+  median_value <- format(round(median(numbers), 2), nsmall = 2)
+  mode_value <- format(round(get_mode(numbers, na.rm = TRUE), 2), nsmall = 2)
+  min_value <- format(round(min(numbers), 2), nsmall = 2)
+  max_value <- format(round(max(numbers), 2), nsmall = 2)
+  sd_value <- format(round(sd(numbers), 2), nsmall = 2)
 
   # Assemble the table
-  table <- paste("\\setlength{\\tabcolsep}{15pt}\\renewcommand{\\arraystretch}{1.3}\\begin{table}[h]\\caption{\\label{tab:", tabTitle, "} \\emph{", tabLabel ,"} (", tabTitle ,")}\\begin{tabularx}{\\linewidth}{@{} >{\\raggedleft\\arraybackslash}p{3.5cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{2.5cm}@{}} \\addlinespace[.5cm] \\toprule Arith. Mittel $\\varnothing$ & Median & Modus & Min & Max & St.-abweichung \\\\\\midrule ", numMean, " & ", numMed, " & ", numMod, " & ", numMin, " & ", numMax, " & ", numSd ,"\\\\\\bottomrule\\end{tabularx}\\end{table}\\vspace{2cm}\n", sep = "")
+  table <- paste("\\setlength{\\tabcolsep}{15pt}\\renewcommand{\\arraystretch}{1.3}\\begin{table}[h]\\caption{\\label{tab:", table_title, "} \\emph{", table_label ,"} (", table_title ,")}\\begin{tabularx}{\\linewidth}{@{} >{\\raggedleft\\arraybackslash}p{3.5cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{2.5cm}@{}} \\addlinespace[.5cm] \\toprule Arith. Mittel $\\varnothing$ & Median & Modus & Min & Max & St.-abweichung \\\\\\midrule ", mean_value, " & ", median_value, " & ", mode_value, " & ", min_value, " & ", max_value, " & ", sd_value ,"\\\\\\bottomrule\\end{tabularx}\\end{table}\\vspace{2cm}\n", sep = "")
   .com <- paste("output[[", length(output) + 1 , "]] <- table", sep = "")
   eval(parse(text= .com))
 
   # Save position in output list in order list
-  order[nrow(order) + 1,] = list(as.character(tabTitle), length(output))
+  order[nrow(order) + 1,] = list(as.character(table_title), length(output))
 }
 
 # Free memory
-rm(.com, .el, getNumbers, numbers, numMax, numMean, numMed, numMin,
-   numMod, numSd, tabLabel, table, tabTitle)
+rm(.com, .el, get_numbers, max_value, mean_value, median_value, min_value,
+   mode_value, numbers, sd_value, table, table_label, table_title)

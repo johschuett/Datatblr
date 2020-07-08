@@ -10,26 +10,26 @@ meta <- import("csv/meta.csv")
 options <- import("csv/options.csv")
 
 # Get survey title
-setTitle <- subset(meta, name == "surveyls_title")
-setTitle <- setTitle[1,5]
+survey_title <- subset(meta, name == "surveyls_title")
+survey_title <- survey_title[1,5]
 
 # Information about the survey variables
 # Possible survey variable types are: Matrix, Multiple-choice, Numeric, Single-choice, String
-varType <- c()
-varName <- c()
-varRow <- c()
+var_type <- c()
+var_name <- c()
+var_row <- c()
 
 for (.row in 1:nrow(meta)) {
   if (meta[.row,2] == "Q") {
-    varType[length(varType) + 1] <- tolower(meta[.row,3])
-    varName[length(varName) + 1] <- meta[.row,4]
-    varRow[length(varRow) + 1] <- which(meta$name == varName[length(varName)]) # Where does the survey variable START in the meta data-frame?
+    var_type[length(var_type) + 1] <- tolower(meta[.row,3])
+    var_name[length(var_name) + 1] <- meta[.row,4]
+    var_row[length(var_row) + 1] <- which(meta$name == var_name[length(var_name)]) # Where does the survey variable START in the meta data-frame?
   }
 }
 
-endRow <- c()
+last_row <- c()
 
-for (.el in varRow) {
+for (.el in var_row) {
   repeat {
     .el <- .el + 1
     if (any(meta[.el,2] %!in% c("A", "SQ"))) {
@@ -37,7 +37,7 @@ for (.el in varRow) {
       break
     }
   }
-  endRow[length(endRow) + 1] <- .el # Where does the survey variable END in the meta data-frame?
+  last_row[length(last_row) + 1] <- .el # Where does the survey variable END in the meta data-frame?
 }
 
 # Create lists for survey variables
@@ -48,18 +48,18 @@ type_s <- list()  # String (not in use)
 
 .a <- 1 # Current survey variable
 
-for (.el in varType) {
+for (.el in var_type) {
   class <- c()  # Q (Question), A (Answer) or SQ (Subquestion)
   type <- c()   # f, m, l, n, s
   name <- c()
   text <- c()
 
   .b <- 1 # Index for class, type, name, text vectors
-  .i <- varRow[.a]
+  .i <- var_row[.a]
 
   # Iterate through the rows of the current survey variable and read in the data until the last row has been reached
   repeat {
-    if (.i == (endRow[.a] + 1)) break
+    if (.i == (last_row[.a] + 1)) break
 
     class[.b] <- meta[.i,2]
     type[.b] <- meta[.i,3]
@@ -72,14 +72,14 @@ for (.el in varType) {
 
   # Get matching list name
   switch(.el,
-         m = currType <- "type_f", # As already mentioned, Multiple-choice survey variables get treated like Matrix survey variables
-         currType <- paste("type_", .el, sep="")
+         m = current_type <- "type_f", # As already mentioned, Multiple-choice survey variables get treated like Matrix survey variables
+         current_type <- paste("type_", .el, sep="")
   )
 
   # Create a data frame out of the collected data and put it into the matching list
-  .listLength <- length(eval(parse(text = currType)))
-  .listSyntax <- paste(parse(text = currType), "[[", .listLength + 1, "]]", sep = "")
-  .com <- paste(.listSyntax, "<-", "cbind.data.frame(class, type, name, text)")
+  .list_length <- length(eval(parse(text = current_type)))
+  .list_syntax <- paste(parse(text = current_type), "[[", .list_length + 1, "]]", sep = "")
+  .com <- paste(.list_syntax, "<-", "cbind.data.frame(class, type, name, text)")
   eval(parse(text= .com))
 
   .a <- .a + 1
@@ -91,5 +91,5 @@ for (.row in 1:nrow(options)) {
 }
 
 # Free memory
-rm(.a, .b, .com, .el, .i, .listLength, .listSyntax, .row, class, currType, endRow,
-   meta, name, options, text, type, varRow, varType)
+rm(.a, .b, .com, .el, .i, .list_length, .list_syntax, .row, class, current_type, last_row,
+   meta, name, options, text, type, var_row, var_type)
