@@ -38,11 +38,11 @@ for (.el in type_f) {
 
     pack <- paste(pack, " ", .el ," & & & \\\\ ", sep = "")
 
-    # Summarize missing categories...
+    # Summarize missing categories ...
     if (missings == 1) {
       total <- count(data)
     }
-    # ...Or ignore missings
+    # ... or ignore missings
     else if (missings == 2) {
       .com <- paste("absNa <- as.numeric(count(dplyr::filter(data, (is.na(", .el ,") | ", .el, " %!in% answer))))", sep = "")
       eval(parse(text = .com))
