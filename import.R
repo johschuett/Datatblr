@@ -76,7 +76,6 @@ for (.el in var_type) {
          current_type <- paste("type_", .el, sep="")
   )
 
-
   # Get length of the targeted list
   .list_length <- length(eval(parse(text = current_type)))
   .list_syntax <- paste(parse(text = current_type), "[[", .list_length + 1, "]]", sep = "")
