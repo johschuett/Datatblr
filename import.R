@@ -76,9 +76,11 @@ for (.el in var_type) {
          current_type <- paste("type_", .el, sep="")
   )
 
-  # Create a data frame out of the collected data and put it into the matching list
+
+  # Get length of the targeted list
   .list_length <- length(eval(parse(text = current_type)))
   .list_syntax <- paste(parse(text = current_type), "[[", .list_length + 1, "]]", sep = "")
+  # Create a data frame out of the collected data and put it into the matching list
   .com <- paste(.list_syntax, "<-", "cbind.data.frame(class, type, name, text)")
   eval(parse(text= .com))
 
