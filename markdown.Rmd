@@ -8,7 +8,6 @@ header-includes:
   - \usepackage{array}
   - \usepackage{booktabs}
   - \usepackage{dcolumn}
-  - \usepackage{fancyhdr}
   - \usepackage{ltxtable}
   - \usepackage{multirow}
   - \usepackage{tabularx}
@@ -38,19 +37,7 @@ author: ""
 date: ""
 ---
 
-\pagestyle{fancy}
-\fancyhf{}
-\setlength{\headsep}{.5in}
-\chead{\emph{`r setTitle`}}
-\renewcommand{\headrulewidth}{0pt}
-\fancyfoot[LE, RO]{\thepage}
-
-
-\thispagestyle{empty}
-\clearpage
-
-\newpage
-\pagenumbering{arabic}
+\maketitle
 \centering
 
 ```{r, echo=FALSE, results='asis', warning=FALSE, comment=FALSE}
