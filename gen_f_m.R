@@ -1,5 +1,5 @@
 # gen_f_m.R
-# This script contains the generator for Matrix and Multiple-choice survey variables
+# This script contains the generator for matrix and multiple-choice survey variables
 
 for (.el in type_f) {
   # Get the title and label for the table
@@ -38,7 +38,7 @@ for (.el in type_f) {
 
     pack <- paste(pack, " ", .el, " & & & \\\\ ", sep = "")
 
-    # Summarize missing categories ...
+    # Summarize missing categories ... (missing variable from import.R)
     if (missings == 1) {
       total <- count(data)
     }

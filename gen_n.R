@@ -1,5 +1,5 @@
 # gen_n.R
-# This script contains the generator for Numerical survey variables
+# This script contains the generator for numerical survey variables
 
 for (.el in type_n) {
   # Get the title and label for the table

@@ -1,5 +1,5 @@
 # gen_l.R
-# This script contains the generator for Single-choice survey variables
+# This script contains the generator for single-choice survey variables
 
 for (.el in type_l) {
   # Get the title and label for the table
@@ -25,9 +25,11 @@ for (.el in type_l) {
     }
   }
 
+  # Summarize missing categories ... (missing variable from import.R)
   if (missings == 1) {
     total <- count(data)
   }
+  # ... or ignore missings
   else if (missings == 2) {
     .com <- paste("absolute_na <- as.numeric(count(dplyr::filter(data, (is.na(", table_title, ") | ", table_title, " %!in% value))))", sep = "")
     eval(parse(text = .com))

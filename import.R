@@ -14,8 +14,8 @@ survey_title <- subset(meta, name == "surveyls_title")
 survey_title <- survey_title[1, 5]
 
 # Information about the survey variables
-# Possible survey variable types are: Matrix, Multiple-choice,
-# Numeric, Single-choice, String
+# Possible survey variable types are: matrix, multiple-choice,
+# numeric, single-choice, string
 var_type <- c()
 var_name <- c()
 var_row <- c()
@@ -42,10 +42,10 @@ for (.el in var_row) {
 }
 
 # Create lists for survey variables
-type_f <- list()  # Matrix / Multiple-choice
-type_l <- list()  # Single-choice
-type_n <- list()  # Numeric
-type_s <- list()  # String (not in use)
+type_f <- list()  # matrix / multiple-choice
+type_l <- list()  # single-choice
+type_n <- list()  # numeric
+type_s <- list()  # string (not in use)
 
 .a <- 1 # Current survey variable
 
@@ -74,7 +74,7 @@ for (.el in var_type) {
 
   # Get matching list name
   switch(.el,
-         m = current_type <- "type_f", # As already mentioned, Multiple-choice survey variables get treated like Matrix survey variables
+         m = current_type <- "type_f", # As already mentioned, multiple-choice survey variables get treated like matrix survey variables
          current_type <- paste("type_", .el, sep = "")
   )
 
