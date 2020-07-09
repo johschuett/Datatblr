@@ -53,7 +53,7 @@ for (.el in type_f) {
     .b <- 1 # Counter for A
     for (.y in answer) {
       # Get absolute frequency for current answer
-      .com <- paste("answer_absolute[", .b,"] <- get_absolute_freq('", .el, "', ", answer[.b], ")", sep = "")
+      .com <- paste("answer_absolute[", .b, "] <- get_absolute_freq('", .el, "', ", answer[.b], ")", sep = "")
       eval(parse(text = .com))
 
       answer_relative[.b] <- round(answer_absolute[.b] / total * 100, 2)

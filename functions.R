@@ -31,7 +31,7 @@ handle_missings <- function(var, cum_absolute, variable_type, val) {
         answer_cum_relative[length(answer_cum_relative) + 1] <<- relative_cum_na
       }
       # Handles Single-choice survey variables
-      else if (variable_type == "l"){
+      else if (variable_type == "l") {
         pack <<- paste(pack, "Missings & ", absolute_na, " & ", relative_na, " & ", relative_cum_na, " \\\\ ", sep = "")
         value_absolute[length(value_absolute) + 1] <<- absolute_na
         value_cum_relative[length(value_cum_relative) + 1] <<- relative_cum_na
