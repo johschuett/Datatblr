@@ -4,7 +4,7 @@
 # Import data from file
 data <- import("csv/data.csv")
 # Convert missing entries to NAs
-data[data == ""] = NA
+data[data == ""] <- NA
 # Import metadata and options from files
 meta <- import("csv/meta.csv")
 options <- import("csv/options.csv")
