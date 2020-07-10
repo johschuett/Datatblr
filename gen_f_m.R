@@ -52,6 +52,7 @@ for (.el in type_f) {
 
     # Calculate the numerical values for the table
     .b <- 1 # Counter for A
+    # We do not use the variable .y! We just need to declare it so we can loop through the answer vector
     for (.y in answer) {
       # Get absolute frequency for current answer
       .com <- paste("answer_absolute[", .b, "] <- get_absolute_freq('", .el, "', ", answer[.b], ")", sep = "")
