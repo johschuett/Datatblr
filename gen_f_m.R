@@ -16,7 +16,7 @@ for (.el in type_f) {
   # Get the subquestions with their labels and the answers with their labels
   .a <- 1 # Counter for SQ
   .b <- 1 # Counter for A
-  for (.row in 1:nrow(.el)) {
+  for (.row in seq_len(nrow(.el))) {
     if (.el[.row, "class"] == "SQ") {
       subquestion[.a] <- as.character(.el[.row, "name"])
       subquestion_label[.a] <- as.character(.el[.row, "text"])

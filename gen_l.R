@@ -17,7 +17,7 @@ for (.el in type_l) {
 
   # Get the variable name, values and their labels
   .i <- 1
-  for (.row in 1:nrow(.el)) {
+  for (.row in seq_len(nrow(.el))) {
     if (.el[.row, "class"] == "Q") current_variable <- as.character(.el[.row, "name"])
     if (.el[.row, "class"] == "A") {
       value[.i] <- as.character(.el[.row, "name"])
@@ -39,7 +39,7 @@ for (.el in type_l) {
 
   # Calculate the numerical values for the table
   .i <- 1
-  for (.row in 1:nrow(.el)) {
+  for (.row in seq_len(nrow(.el))) {
     if (.el[.row, "class"] == "A") {
       # Get absolute frequency for current answer
       .com <- paste("value_absolute[", .i, "] <- get_absolute_freq('", current_variable, "', ", value[.i], ")", sep = "")

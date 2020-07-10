@@ -20,7 +20,7 @@ var_type <- c()
 var_name <- c()
 var_row <- c()
 
-for (.row in 1:nrow(meta)) {
+for (.row in seq_len(nrow(meta))) {
   if (meta[.row, 2] == "Q") {
     var_type[length(var_type) + 1] <- tolower(meta[.row, 3])
     var_name[length(var_name) + 1] <- meta[.row, 4]
@@ -89,7 +89,7 @@ for (.el in var_type) {
 }
 
 # Get options
-for (.row in 1:nrow(options)) {
+for (.row in seq_len(nrow(options))) {
   assign(options[.row, 1], options[.row, 2])
 }
 
