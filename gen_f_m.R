@@ -65,12 +65,11 @@ for (.el in type_f) {
       answer_cum_relative[.b] <- format(as.numeric(answer_cum_relative[.b]), nsmall = 2)
 
       # Check if this is the first iteration. If it is so, put the subquestion label in the LaTeX line
-      if (.b == 1) {
-        pack <- paste(pack, subquestion_label[.a], " & ", answer_label[.b], " & ", answer_absolute[.b], " & ", answer_relative[.b], " & ", answer_cum_relative[.b], " \\\\", sep = "")
-      }
-      else {
-        pack <- paste(pack, " & ", answer_label[.b], " & ", answer_absolute[.b], " & ", answer_relative[.b], " & ", answer_cum_relative[.b], " \\\\", sep = "")
-      }
+      ifelse(.b == 1,
+             pack <- paste(pack, subquestion_label[.a], " & ", answer_label[.b], " & ", answer_absolute[.b], " & ", answer_relative[.b], " & ", answer_cum_relative[.b], " \\\\", sep = ""),
+             pack <- paste(pack, " & ", answer_label[.b], " & ", answer_absolute[.b], " & ", answer_relative[.b], " & ", answer_cum_relative[.b], " \\\\", sep = "")
+      )
+
       .b <- .b + 1
     }
 
