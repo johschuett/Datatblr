@@ -10,9 +10,9 @@
 ## @knitr setup
 
 # Packages
-library(dplyr)
-library(pkgcond)
-library(rio)
+library(dplyr)    # Version 1.0.0
+library(pkgcond)  # Version 0.1.0
+library(rio)      # Version 0.5.16
 
 # Scripts
 source("import.R")
