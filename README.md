@@ -8,7 +8,7 @@ Datatblr is a program that generates a table collection with the univariate desc
 
 Datatblr is suitable for generating table volumes that typically appear in the appendix of research reports, or for the preparation of more detailed analysis.
 
-## Dependencies
+### Dependencies
 * R base (3.6.3 or newer)  [CRAN](https://cloud.r-project.org/)
   * [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html) package
   * [knitr](https://yihui.org/knitr/) package
@@ -17,4 +17,5 @@ Datatblr is suitable for generating table volumes that typically appear in the a
 * LaTeX [TeX Live](https://www.tug.org/texlive/)
 * pandoc  [PANDOC.ORG](https://pandoc.org/)
 
-License: GNU General Public License v2.0
+### License
+[GNU General Public License v2.0](https://github.com/johschuett/Datatblr/blob/master/LICENSE)
