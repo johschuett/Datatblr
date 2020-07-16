@@ -36,12 +36,12 @@ vignettes/*.pdf
 *.knit.md
 
 # R markdown output
-markdown.pdf
-markdown.tex
-markdown.aux
-markdown.log
-markdown.out
-markdown.synctex.gz
+*.pdf
+*.tex
+*.aux
+*.log
+*.out
+*.synctex.gz
 
 # R Environment Variables
 .Renviron
