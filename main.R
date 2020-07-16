@@ -2,7 +2,7 @@
 # Datatblr stable-1.0                                                #
 # Johannes Schütt, Chair of Empirical Methods, University of Potsdam #
 # johschuett@uni-potsdam.de                                          #
-# License: GNU General Public License v3.0                           #
+# License: GNU General Public License v2                             #
 ######################################################################
 
 # Version: R 4.0.0
