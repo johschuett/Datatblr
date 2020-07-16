@@ -15,7 +15,7 @@ for (.el in type_n) {
     return(numbers)
   }
 
-  numbers <- suppress_warnings(get_numbers(), "NAs introduced by coercion")
+  numbers <- pkgcond::suppress_warnings(get_numbers(), "NAs introduced by coercion")
 
   # Calculate the numerical values for the table
   mean_value <- format(round(mean(numbers), 2), nsmall = 2)
@@ -26,7 +26,24 @@ for (.el in type_n) {
   sd_value <- format(round(sd(numbers), 2), nsmall = 2)
 
   # Assemble the table
-  table <- paste("\\setlength{\\tabcolsep}{15pt}\\renewcommand{\\arraystretch}{1.3}\\begin{table}[h]\\caption{\\label{tab:", table_title, "} \\emph{", table_label, "} (", table_title, ")}\\begin{tabularx}{\\linewidth}{@{} >{\\raggedleft\\arraybackslash}p{3.5cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{2.5cm}@{}} \\addlinespace[.5cm] \\toprule Arith. Mittel $\\varnothing$ & Median & Modus & Min & Max & St.-abweichung \\\\\\midrule ", mean_value, " & ", median_value, " & ", mode_value, " & ", min_value, " & ", max_value, " & ", sd_value, "\\\\\\bottomrule\\end{tabularx}\\end{table}\\vspace{2cm}\n", sep = "")
+  table <- paste("
+\\setlength{\\tabcolsep}{15pt}
+\\renewcommand{\\arraystretch}{1.3}
+\\begin{table}[h]
+\\caption{\\label{tab:", table_title, "}
+\\emph{", table_label, "} (", table_title, ")}
+\\begin{tabularx}{\\linewidth}{@{} >{\\raggedleft\\arraybackslash}p{3.5cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{2.5cm}@{}}
+\\addlinespace[.5cm]
+\\toprule
+Arith. Mittel $\\varnothing$ & Median & Modus & Min & Max & St.-abweichung \\\\
+\\midrule\n",
+mean_value, " & ", median_value, " & ", mode_value, " & ", min_value, " & ", max_value, " & ", sd_value, "\\\\
+\\bottomrule
+\\end{tabularx}
+\\end{table}\n
+\\vspace{2cm}\n",
+sep = "")
+
   .com <- paste("output[[", length(output) + 1, "]] <- table", sep = "")
   eval(parse(text = .com))
 

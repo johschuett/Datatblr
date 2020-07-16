@@ -38,6 +38,10 @@ vignettes/*.pdf
 # R markdown output
 markdown.pdf
 markdown.tex
+markdown.aux
+markdown.log
+markdown.out
+markdown.synctex.gz
 
 # R Environment Variables
 .Renviron

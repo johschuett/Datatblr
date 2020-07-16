@@ -60,7 +60,10 @@ for (.el in type_l) {
     value_relative[.i] <- format(as.numeric(value_relative[.i]), nsmall = 2)
     value_cum_relative[.i] <- format(as.numeric(value_cum_relative[.i]), nsmall = 2)
 
-    pack <- paste(pack, value_label[.i], " & ",  value_absolute[.i], " & ", value_relative[.i], " & ", value_cum_relative[.i], " \\\\ ", sep = "")
+    pack <- paste(
+pack,
+value_label[.i], " & ",  value_absolute[.i], " & ", value_relative[.i], " & ", value_cum_relative[.i], " \\\\
+", sep = "")
     .i <- .i + 1
   }
 
@@ -70,10 +73,27 @@ for (.el in type_l) {
   # Total
   relative_total <- tail(value_cum_relative, n = 1)
 
-  pack <- paste(pack, "\\midrule Gesamt & ", sum(value_absolute), " & ", relative_total, " & \\\\", sep = "")
+  pack <- paste(
+pack,
+"\\midrule Gesamt & ", sum(value_absolute), " & ", relative_total, " & \\\\",
+sep = "")
 
   # Assemble table
-  table <- paste("\\setlength{\\tabcolsep}{10pt}\\renewcommand{\\arraystretch}{1.3}\\begin{longtable}[h]{ p{8.3cm} >{\\raggedleft\\arraybackslash}p{4.5cm} .{2} .{2} }\\caption[", table_title, "]{\\emph{", table_label, "}} \\\\ \\addlinespace[.5cm] \\toprule ", table_title, " & Absolut & \\mc{Prozent} & \\mc{Kumuliert (\\%)} \\\\\\midrule ", pack, "\\bottomrule\\end{longtable}\\vspace{2cm}\n", sep = "")
+  table <- paste("
+\\setlength{\\tabcolsep}{10pt}
+\\renewcommand{\\arraystretch}{1.3}
+\\begin{longtable}[h]{ p{8.3cm} >{\\raggedleft\\arraybackslash}p{4.5cm} .{2} .{2} }
+\\caption[", table_title, "]{\\emph{", table_label, "}} \\\\
+\\addlinespace[.5cm]
+\\toprule\n",
+table_title, " & Absolut & \\mc{Prozent} & \\mc{Kumuliert (\\%)} \\\\
+\\midrule\n",
+pack,
+"\n\\bottomrule
+\\end{longtable}\n
+\\vspace{2cm}\n",
+sep = "")
+
   .com <- paste("output[[", length(output) + 1, "]] <- table", sep = "")
   eval(parse(text = .com))
 

@@ -37,7 +37,10 @@ for (.el in type_f) {
     answer_cum_absolute <- c()
     answer_cum_relative <- c()
 
-    pack <- paste(pack, " ", .el, " & & & \\\\ ", sep = "")
+    pack <- paste(
+pack,
+.el, " & & & \\\\
+", sep = "")
 
     # Summarize missing categories ... (missing variable from import.R)
     if (missings == 1) {
@@ -67,8 +70,14 @@ for (.el in type_f) {
 
       # Check if this is the first iteration. If it is so, put the subquestion label in the LaTeX line
       ifelse(.b == 1,
-             pack <- paste(pack, subquestion_label[.a], " & ", answer_label[.b], " & ", answer_absolute[.b], " & ", answer_relative[.b], " & ", answer_cum_relative[.b], " \\\\", sep = ""),
-             pack <- paste(pack, " & ", answer_label[.b], " & ", answer_absolute[.b], " & ", answer_relative[.b], " & ", answer_cum_relative[.b], " \\\\", sep = "")
+             pack <- paste(
+pack,
+subquestion_label[.a], " & ", answer_label[.b], " & ", answer_absolute[.b], " & ", answer_relative[.b], " & ", answer_cum_relative[.b], " \\\\
+", sep = ""),
+             pack <- paste(
+pack,
+" & ", answer_label[.b], " & ", answer_absolute[.b], " & ", answer_relative[.b], " & ", answer_cum_relative[.b], " \\\\
+", sep = "")
       )
 
       .b <- .b + 1
@@ -79,13 +88,34 @@ for (.el in type_f) {
 
     # Total
     relative_total <- tail(answer_cum_relative, n = 1)
-    pack <- paste(pack, "\\midrule & Gesamt & ", sum(answer_absolute), " & ", relative_total, " & \\\\ \\addlinespace[.5cm] ", sep = "")
+    pack <- paste(
+pack,
+"\\midrule
+ & Gesamt & ", sum(answer_absolute), " & ", relative_total, " & \\\\
+\\addlinespace[.5cm]
+", sep = "")
 
     .a <- .a + 1
   }
 
   # Assemble table
-  table <- paste("\n\\newpage\\setlength{\\tabcolsep}{10pt}\\renewcommand{\\arraystretch}{1.3}\\begin{longtable}[h]{ p{6.1cm} p{3.5cm} >{\\raggedleft\\arraybackslash}p{2.5cm} .{2} .{2} }\\caption[", table_title, "]{\\emph{", table_label, "}} \\\\ \\addlinespace[.5cm] \\toprule ", table_title, " & & Absolut & \\mc{Prozent} & \\mc{Kumuliert (\\%)} \\\\\\midrule", pack, "\\addlinespace[-.4cm]\\bottomrule\\end{longtable}\n\\newpage", sep = "")
+  table <- paste("
+\\newpage
+\\setlength{\\tabcolsep}{10pt}
+\\renewcommand{\\arraystretch}{1.3}
+\\begin{longtable}[h]{ p{6.1cm} p{3.5cm} >{\\raggedleft\\arraybackslash}p{2.5cm} .{2} .{2} }
+\\caption[", table_title, "]{\\emph{", table_label, "}} \\\\
+\\addlinespace[.5cm]
+\\toprule\n",
+table_title, " & & Absolut & \\mc{Prozent} & \\mc{Kumuliert (\\%)} \\\\
+\\midrule\n",
+pack,
+"\\addlinespace[-.4cm]
+\\bottomrule
+\\end{longtable}
+\\newpage",
+sep = "")
+
   .com <- paste("output[[", length(output) + 1, "]] <- table", sep = "")
   eval(parse(text = .com))
 
