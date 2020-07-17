@@ -33,6 +33,9 @@ for (.el in type_l) {
   # ... or ignore missings
   else if (missings == 2) {
     .com <- paste("absolute_na <- as.numeric(count(dplyr::filter(data, (is.na(", table_title, ") | ", table_title, " %!in% value))))", sep = "")
+    # For Stata users: You can use the following command to filter missings
+    # by searching for values starting with a full stop:
+    # .com <- paste("as.numeric(count(dplyr::filter(data, (is.na(", table_title ,") | substr(", table_title, ", 1, 1) == '.'))))", sep = "")
     eval(parse(text = .com))
     total <- count(data) - absolute_na
   }

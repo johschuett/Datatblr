@@ -17,6 +17,9 @@ get_mode <-  function(x, na.rm = FALSE) { # Source: https://www.politikwissensch
 handle_missings <- function(var, cum_absolute, variable_type, val) {
   if (missings == 1) { # Summarize missing categories
     .com <- paste("absolute_na <- as.numeric(count(dplyr::filter(data, (is.na(", var, ") | ", var, " %!in% val))))", sep = "")
+    # For Stata users: You can use the following command to filter missings
+    # by searching for values starting with a full stop:
+    # .com <- paste("as.numeric(count(dplyr::filter(data, (is.na(", var ,") | substr(", var, ", 1, 1) == '.'))))", sep = "")
     eval(parse(text = .com))
 
     if (absolute_na != 0) {

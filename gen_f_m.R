@@ -49,6 +49,9 @@ pack,
     # ... or ignore missings
     else if (missings == 2) {
       .com <- paste("absNa <- as.numeric(count(dplyr::filter(data, (is.na(", .el, ") | ", .el, " %!in% answer))))", sep = "")
+      # For Stata users: You can use the following command to filter missings
+      # by searching for values starting with a full stop:
+      # .com <- paste("as.numeric(count(dplyr::filter(data, (is.na(", .el ,") | substr(", .el, ", 1, 1) == '.'))))", sep = "")
       eval(parse(text = .com))
       total <- count(data) - absNa
     }
