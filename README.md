@@ -17,5 +17,9 @@ Datatblr is suitable for generating table volumes that typically appear in the a
 * LaTeX [TeX Live](https://www.tug.org/texlive/)
 * pandoc  [PANDOC.ORG](https://pandoc.org/)
 
+### Run
+To run the program, simply issue `source("run.R")` inside R.
+Make sure that you are in the correct working directory (use `getwd()` and `setwd(<your-desired-path>)` to check and to switch your working directory).
+
 ### License
 [GNU General Public License v2.0](https://github.com/johschuett/Datatblr/blob/master/LICENSE)
