@@ -45,3 +45,9 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# Console files
+.current_dir
+
+# Ignore compiled program
+Datatblr
