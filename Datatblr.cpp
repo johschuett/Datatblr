@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>
 #include <string>
 #include <sys/stat.h>
 #include <unistd.h>
@@ -46,10 +47,13 @@ void boot_info(string version)
   string current_dir = "NULL";
   int get_current_dir = system("Rscript -e \"cat(getwd())\" > .current_dir");
 
-  // Returned !0
+  // Returned !0 -> Error
   if (get_current_dir != 0) {
-    cout << bold_on << "ERROR:" << bold_off << " Couldn't get working directory" << endl;
+    cout << "#! " << bold_on << "ERROR:" << bold_off << " Couldn't get working directory." << endl;
+    cout << "#!        Check " << bold_on << ".Rprofile!" << bold_off << endl;
     cout << "#!" << endl;
+    sleep(1);
+    exit (EXIT_FAILURE);
   }
   // Returned 0
   else {
