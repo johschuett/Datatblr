@@ -158,7 +158,7 @@ void wd_info()
   cout << "#! and add your desired directory." << endl;
   cout << "#!" << endl;
   cout << "#! Place the following command in .Rprofile:" << endl;
-  cout << "#! " << bold_on << "setwd(\"<your-desired-directory>\")" << bold_off << "." << endl;
+  cout << "#! " << bold_on << "setwd(\"/your/desired/directory\")" << bold_off << "." << endl;
   cout << sep << endl;
 }
 
