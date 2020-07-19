@@ -49,5 +49,6 @@ vignettes/*.pdf
 # Console files
 .current_dir
 
-# Ignore compiled program
+# Ignore compiled program an .o files
 Datatblr
+*.o
