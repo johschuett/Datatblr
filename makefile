@@ -5,4 +5,4 @@ Datatblr.o: Datatblr.cpp
 	g++ -std=c++17 -c Datatblr.cpp
 
 clean:
-	rm Datatblr.o
+	rm Datatblr.o Datatblr
