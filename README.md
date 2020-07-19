@@ -17,7 +17,7 @@ Datatblr is suitable for generating table volumes that typically appear in the a
 * LaTeX [TeX Live](https://www.tug.org/texlive/)
 * pandoc  [PANDOC.ORG](https://pandoc.org/)
 
-### Run
+### Compile & Run
 To compile the program, simply run the command `make` inside your console in the directory of the program folder. After that, you can simply run the executable by clicking on it or by running the command `./Datablr`.
 
 ### License
