@@ -52,3 +52,7 @@ vignettes/*.pdf
 # Ignore compiled program an .o files
 Datatblr
 *.o
+
+# Ignore test csv files
+data.csv
+meta.csv
