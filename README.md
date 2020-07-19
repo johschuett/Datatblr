@@ -20,7 +20,7 @@ Datatblr is suitable for generating table volumes that typically appear in the a
 ### Compile & Run
 To compile the program, simply run the command `make` inside your console in the directory of the program folder. After that, you can simply run the executable by clicking on it or by running the command `./Datatblr`.
 
-You can of course just dig straight into the R code (starting from `render.R`) and have fun with it  :slightly_smiling_face:
+You can of course just dig straight into the R code (starting from `render.R`) and have fun with it  :slightly_smiling_face:.
 
 ### License
 [GNU General Public License v2.0 only](https://github.com/johschuett/Datatblr/blob/master/LICENSE)
