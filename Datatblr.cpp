@@ -4,48 +4,61 @@
 
 using namespace std;
 
+// cout formatting
 ostream& bold_on(std::ostream& os)
 {
-    return os << "\e[1m";
+  return os << "\e[1m";
 }
 
 ostream& bold_off(std::ostream& os)
 {
-    return os << "\e[0m";
+  return os << "\e[0m";
 }
 
-void boot_info(string version) {
+// Command line functions
+void authors()
+{
+  cout << "#! Datatblr was written by Johannes Schütt" << endl;
+  cout << "#! Co-author: Claudia Saalbach" << endl;
+  cout << "#!" << endl;
+  cout << "#! Written for the Chair of Empirical Social Research" << endl;
+  cout << "#! at the University of Potsdam" << endl;
+}
+
+void boot_info(string version)
+{
   // Get working directory
   string current_dir = "NULL";
   int get_current_dir = system("Rscript -e \"cat(getwd())\" > .current_dir");
 
+  // Returned !0
   if (get_current_dir != 0) {
     cout << bold_on << "ERROR:" << bold_off << " Couldn't get working directory" << endl;
     cout << "#!" << endl;
   }
+  // Returned 0
   else {
     ifstream dir_file (".current_dir");
+    // Couldn't open file
     if(!dir_file.is_open()) {
       cout << "#! " << bold_on << "ERROR:" << bold_off << " File Open" << endl;
       cout << "#!" << endl;
     }
+    // Read file
     else {
       getline(dir_file, current_dir, '\n');
       dir_file.close();
     }
   }
 
+  // Print infotext
   cout << "#!" << bold_on << " Hej, this is Datatblr " << version << "!" << bold_off << endl;
-  cout << "#! License: GNU General Public License v2.0" << endl;
+  cout << "#! License: GNU General Public License v2.0 only" << endl;
   cout << "#!" << endl;
   cout << "#!" << " Your R working directory is currently set to" << endl;
   cout << "#!" << endl;
   cout << "#! " << bold_on << current_dir << bold_off << endl;
   cout << "#!" << endl;
-  //cout << "#! If you wish to change the current working directory" << endl;
-  //cout << "#! you're in, type :q to quit the program and do" << endl;
-  //cout << "#! setwd(\"<your-desired-path>\")" << endl;
-  //cout << "#!" << endl;
   cout << "#! Issue " << bold_on << ":e" << bold_off << " for examples." << endl;
   cout << "#! Issue " << bold_on << ":q" << bold_off << " to quit the program." << endl;
   cout << "#!" << endl;
@@ -53,31 +66,38 @@ void boot_info(string version) {
   cout << "#!" << bold_on << " or a command (starting with a colon):" << bold_off << endl;
 }
 
+// Command :e
 void examples()
 {
-    cout << "#! Examples:" << endl;
-    cout << "#! ~/Desktop/data.csv" << endl;
-    cout << "#! test1.csv" << endl;
-    cout << "#! data/my_data.csv" << endl;
+  cout << "#! Examples:" << endl;
+  cout << "#! ~/Desktop/data.csv" << endl;
+  cout << "#! test1.csv" << endl;
+  cout << "#! data/my_data.csv" << endl;
 }
 
+// Input = data file
 void initiate(string input)
 {
 
 }
 
+// Command :q
 void quit(bool& quit_flag)
 {
-    quit_flag = true;
-    cout << "#! take care!" << endl;
-    sleep(1);
+  quit_flag = true;
+  cout << "#! take care!" << endl;
+  sleep(1);
 }
 
+// Joke area
+
+// Command :s
 void s_o_d()
 {
   cout << "#! watch?v=XtAhISkoJZc" << endl;
 }
 
+// Command :t
 void table()
 {
   cout << "#!      _____________________" << endl;
@@ -91,6 +111,8 @@ void table()
   cout << "#!   ||                 ||" << endl;
   cout << "#!   ||                 ||" << endl;
 }
+
+// Yeah that was very funny
 
 int main()
 {
@@ -119,7 +141,11 @@ int main()
     cout << "#~ ";
     cin >> input;
 
-    if (input == ":e")
+    if (input.substr(0, 1) != ":")
+      initiate(input);
+    else if (input == ":a")
+      authors();
+    else if (input == ":e")
       examples();
     else if (input == ":s")
       s_o_d();
@@ -128,8 +154,7 @@ int main()
     else if (input == ":t")
       table();
     else
-      initiate(input);
-
+      cout << "#! Oops, I don't know this command..." << endl;
   }
 
   return 0;
