@@ -13,6 +13,8 @@ typedef unordered_map<string, ScriptFunction> func_map;
 // Global
 bool quit_flag = false;
 func_map commands;
+string sep = "#! ---------------------------------------------------";
+string version = "stable-1.0";
 
 // cout formatting
 ostream& bold_on(ostream& os)
@@ -65,14 +67,18 @@ void boot_info(string version)
   }
 
   // Print infotext
-  cout << "#!" << bold_on << " Hej, this is Datatblr " << version << "!" << bold_off << endl;
+  cout << "#!" << bold_on << "         Hej, this is Datatblr " << version << "!" << bold_off << endl;
+  cout << "#!" << endl;
   cout << "#! License: GNU General Public License v2.0 only" << endl;
+  cout << "#! Issue :a to see the authors of this program" << endl;
   cout << "#!" << endl;
   cout << "#!" << " Your R working directory is currently set to" << endl;
   cout << "#!" << endl;
   cout << "#! " << bold_on << current_dir << bold_off << endl;
   cout << "#!" << endl;
-  cout << "#! Issue " << bold_on << ":e" << bold_off << " for examples." << endl;
+  cout << "#! Issue " << bold_on << ":w" << bold_off << " to learn how to change it." << endl;
+  cout << "#!" << endl;
+  cout << "#! Issue " << bold_on << ":e" << bold_off << " for examples on how to use the program." << endl;
   cout << "#! Issue " << bold_on << ":q" << bold_off << " to quit the program." << endl;
   cout << "#!" << endl;
   cout << "#! Please put in the path of your " << bold_on << "data" << bold_off << " file" << endl;
@@ -82,21 +88,29 @@ void boot_info(string version)
 // Command line functions
 void authors()
 {
-  cout << "#! Datatblr was written by Johannes Schütt" << endl;
+  cout << sep << endl;
+  cout << "#! Datatblr " << version << endl;
+  cout << "#! was written by Johannes Schütt" << endl;
   cout << "#! Co-author: Claudia Saalbach" << endl;
   cout << "#!" << endl;
-  cout << "#! Written for the Chair of Empirical Social Research" << endl;
+  cout << "#! Chair of Empirical Social Research" << endl;
   cout << "#! at the University of Potsdam" << endl;
+  cout << "#!" << endl;
+  cout << "#! Visit the repository for updates:" << endl;
+  cout << "#! https://www.github.com/johschuett/Datatblr" << endl;
+  cout << sep << endl;
 }
 
 // Command :e
 void examples()
 {
   cout << "#! Examples:" << endl;
+  cout << sep << endl;
   cout << "#! /Users/<your-user-name>/Desktop/data.csv" << endl;
   cout << "#! test1.csv" << endl;
   cout << "#! data/my_data.csv" << endl;
   cout << "#! ../mystuff/somefile.csv" << endl;
+  cout << sep << endl;
 }
 
 // Command :q
@@ -131,6 +145,22 @@ void table()
 }
 
 // Yeah that was very funny
+
+// Comment :w
+void wd_info()
+{
+  cout << "#! Changing the working directory:" << endl;
+  cout << sep << endl;
+  cout << "#! You can change the default working directory for R" << endl;
+  cout << "#! simply by adding the path to your desired directory" << endl;
+  cout << "#! to your " << bold_on << ".Rprofile" << bold_off << " inside your root directory." << endl;
+  cout << "#! If there is no such file, you can simply create one" << endl;
+  cout << "#! and add your desired directory." << endl;
+  cout << "#!" << endl;
+  cout << "#! Place the following command in .Rprofile:" << endl;
+  cout << "#! " << bold_on << "setwd(\"<your-desired-directory>\")" << bold_off << "." << endl;
+  cout << sep << endl;
+}
 
 // Input = data file
 void initiate(string input)
@@ -175,11 +205,11 @@ int main()
   commands.emplace(":q", &quit);
   commands.emplace(":s", &s_o_d);
   commands.emplace(":t", &table);
+  commands.emplace(":w", &wd_info);
 
   string input;
-  string version = "stable-1.0";
 
-  cout << "#! ---------------------------------------------" << endl;
+  cout << sep << endl;
   cout << "#! Checking your R installation..." << endl;
   int r_check = system("R --version > /dev/null");
   if (r_check != 0) {
@@ -190,7 +220,7 @@ int main()
   }
   else {
     cout << "#! You have R installed on your system \U0001F389" << endl;
-    cout << "#! ---------------------------------------------" << endl;
+    cout << sep << endl;
     cout << "#!" << endl;
     boot_info(version);
   }
