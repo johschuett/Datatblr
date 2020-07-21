@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <stdlib.h>
 #include <string>
 #include <sys/stat.h>
 #include <unistd.h>
@@ -41,30 +40,34 @@ bool file_extension(string file, string extension)
   return file.substr(file.find_last_of(".") + 1) == extension;
 }
 
-void boot_info(string version)
+void boot_info()
 {
   // Get working directory and write it into .current_dir file
   string current_dir = "NULL";
   int get_current_dir = system("Rscript -e \"cat(getwd())\" > .current_dir");
 
   // Returned !0 -> Error
-  if (get_current_dir != 0) {
+  if (get_current_dir != 0)
+  {
+    quit_flag = true;
     cout << "#! " << bold_on << "ERROR:" << bold_off << " Couldn't get working directory." << endl;
     cout << "#!        Check " << bold_on << ".Rprofile!" << bold_off << endl;
     cout << "#!" << endl;
     sleep(1);
-    exit (EXIT_FAILURE);
   }
   // Returned 0
-  else {
+  else
+  {
     ifstream dir_file (".current_dir");
     // Couldn't open file
-    if(!dir_file.is_open()) {
+    if(!dir_file.is_open())
+    {
       cout << "#! " << bold_on << "ERROR:" << bold_off << " File Open" << endl;
       cout << "#!" << endl;
     }
     // Read file
-    else {
+    else
+    {
       getline(dir_file, current_dir, '\n');
       dir_file.close();
     }
@@ -96,15 +99,18 @@ void boot_info(string version)
 void initiate(string input)
 {
   // File couldn't be found
-  if (!file_exists(input)) {
+  if (!file_exists(input))
+  {
     cout << "#! Oops, I couldn't find your file..." << endl;
   }
   // File is not a CSV file
-  else if (!file_extension(input, "csv")) {
+  else if (!file_extension(input, "csv"))
+  {
     cout << "#! Oops, I only eat .csv files... (case sensitive)" << endl;
   }
   // File seems fine
-  else {
+  else
+  {
     // Get adress of input
     string* ptr_data = &input;
     // Write value from adress
@@ -120,7 +126,8 @@ void initiate(string input)
 void call_func(const std::string& input)
 {
     auto iter = commands.find(input);
-    if (iter == commands.end()) {
+    if (iter == commands.end())
+    {
         cout << "#! Oops, I don't know this command..." << endl;
     }
     else
@@ -140,32 +147,111 @@ int main()
   string input;
 
   cout << sep << endl;
+
+  // Checking dependencies
   cout << "#! Checking your R installation..." << endl;
   int r_check = system("R --version > /dev/null");
-  if (r_check != 0) {
+  if (r_check != 0)
+  {
     quit_flag = true;
     cout << "#! I couldn't find R on your system." << endl;
     cout << "#! Please install R (v.3.6.0 or newer)!" << endl;
     sleep(3);
   }
-  else {
-    cout << "#! You have R installed on your system \U0001F389" << endl;
+  else
+  {
+    cout << "#! You have R installed \U0001F4CA" << endl;
+  }
+
+  // Checking R packages (dplyr, knitr, pkcond, rio) and install the missing ones
+
+  // Check internet connection
+  int connection = system("ping -c 1 r-project.org &> /dev/null");
+  if (connection != 0)
+  {
+    // No internet connection, just check for the packages
+    // and throw a warning if a package is missing
+    system("Rscript -e \"\
+    required_packages <- c('dplyr', 'knitr', 'pkgcond', 'rio');\
+    missing_packages <- required_packages[!(required_packages %in% installed.packages()[,'Package'])];\
+    if (length(missing_packages)) {\
+    cat('#! Missing packages; no internet connection.')\
+    }\
+    else {\
+    cat('#! You have all required R packages installed \U0001F5C3\n');\
+    }\"");
+  }
+  else
+  {
+    // Internet connection, Check for the packages
+    // and try to install missing packages
+    system("Rscript -e \"\
+    required_packages <- c('dplyr', 'knitr', 'pkgcond', 'rio');\
+    missing_packages <- required_packages[!(required_packages %in% installed.packages()[,'Package'])];\
+    if (length(missing_packages)) {\
+    cat('#! Installing missing R package(s)...\n');\
+    cat('#! ---------------------------------------------------\n');\
+    cat('#! R -------------------------------------------------\n');\
+    cat('\n');\
+    install.packages(missing_packages, repos = 'http://cran.us.r-project.org');\
+    cat('\n');\
+    cat('#! R END ---------------------------------------------\n');\
+    cat('#! ---------------------------------------------------\n');\
+    cat('#! Missing package(s) have been installed \U0001F5C3\n')\
+    }\
+    else {\
+    cat('#! You have all required R packages installed \U0001F5C3\n');\
+    }\"");
+  }
+
+  cout << "#! Checking your LaTeX installation..." << endl;
+  int latex_check = system("latex --version > /dev/null");
+  if (latex_check != 0)
+  {
+    quit_flag = true;
+    cout << "#! I couldn't find LaTeX on your system." << endl;
+    cout << "#! Please install a LaTeX distribution!" << endl;
+    sleep(3);
+  }
+  else
+  {
+    cout << "#! You have a LaTeX distribution installed \U0001F4C4" << endl;
+  }
+
+  cout << "#! Checking your pandoc installation..." << endl;
+  int pandoc_check = system("pandoc --version > /dev/null");
+  if (pandoc_check != 0)
+  {
+    quit_flag = true;
+    cout << "#! I couldn't find pandoc on your system." << endl;
+    cout << "#! Please install pandoc!" << endl;
+    sleep(3);
+  }
+  else
+  {
+    cout << "#! You have pandoc installed \U0001F4D1" << endl;
     cout << sep << endl;
     cout << "#!" << endl;
-    boot_info(version);
+    // All dependencies are installed, so show the boot info
+    boot_info();
   }
 
   // Main Loop
-  while (!quit_flag) {
+  while (!quit_flag)
+  {
     cout << "#~ ";
     cin >> input;
 
     if (input.substr(0, 1) != ":")
+    {
       // Treat input as filename
       initiate(input);
+    }
     else
+    {
       // Treat input as command
       call_func(input);
+    }
   }
 
   return 0;
