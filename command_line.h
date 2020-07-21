@@ -1,10 +1,14 @@
 // Command :a
 void authors()
 {
+  cout << "#! Credits:" << endl;
   cout << sep << endl;
   cout << "#! Datatblr " << version << endl;
   cout << "#! was written by Johannes Schütt" << endl;
   cout << "#! Co-author: Claudia Saalbach" << endl;
+  cout << "#!" << endl;
+  cout << "#! Datatblr is part of the survey.codes project" << endl;
+  cout << "#! Visit https://www.survey.codes" << endl;
   cout << "#!" << endl;
   cout << "#! Chair of Empirical Social Research" << endl;
   cout << "#! at the University of Potsdam" << endl;
