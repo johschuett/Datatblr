@@ -93,7 +93,7 @@ void boot_info()
 }
 
 // Include the command line functions
-#include "command_line.h"
+#include "header/command_line.h"
 
 // Input = data file
 void initiate(string input)
