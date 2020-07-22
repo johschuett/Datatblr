@@ -18,9 +18,11 @@ Datatblr is suitable for generating table volumes that typically appear in the a
 * pandoc  [PANDOC.ORG](https://pandoc.org/)
 
 ### Compile & Run
-To compile the program, simply run the command `make` inside your console in the directory of the program folder. After that, you can simply run the executable by clicking on it or by running the command `./Datatblr`.
+**UNIX:** To compile the Datatblr user interface, run the command `make` inside your console in the directory of the program folder. After that, you can run the compiled executable by double-clicking on it or by running the command `./Datatblr`.
 
 You can of course just dig straight into the `R` code (starting from `render.R`) and have fun with it  :slightly_smiling_face:.
+
+The user interface is compatible with UNIX systems. If you are running **Windows**, you have to work directly with the R files!
 
 ### License
 [GNU General Public License v2.0 only](https://github.com/johschuett/Datatblr/blob/master/LICENSE)
