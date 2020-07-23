@@ -50,9 +50,9 @@ void boot_info()
   if (get_current_dir != 0)
   {
     quit_flag = true;
-    cout << "#! " << bold_on << "ERROR:" << bold_off << " Couldn't get working directory." << endl;
-    cout << "#!        Check " << bold_on << ".Rprofile!" << bold_off << endl;
-    cout << "#!" << endl;
+    cout << "#! " << bold_on << "ERROR:" << bold_off << " Couldn't get working directory." << endl
+      << "#!        Check " << bold_on << ".Rprofile!" << bold_off << endl
+      << "#!" << endl;
     sleep(1);
   }
   // Returned 0
@@ -62,8 +62,8 @@ void boot_info()
     // Couldn't open file
     if(!dir_file.is_open())
     {
-      cout << "#! " << bold_on << "ERROR:" << bold_off << " File Open" << endl;
-      cout << "#!" << endl;
+      cout << "#! " << bold_on << "ERROR:" << bold_off << " File Open" << endl
+        << "#!" << endl;
     }
     // Read file
     else
@@ -74,22 +74,22 @@ void boot_info()
   }
 
   // Print infotext
-  cout << "#!" << bold_on << "         Hej, this is Datatblr " << version << "!" << bold_off << endl;
-  cout << "#!" << endl;
-  cout << "#! License: GNU General Public License v2.0 only" << endl;
-  cout << "#! Issue :a to see the authors of this program" << endl;
-  cout << "#!" << endl;
-  cout << "#!" << " Your R working directory is currently set to" << endl;
-  cout << "#!" << endl;
-  cout << "#! " << bold_on << current_dir << bold_off << endl;
-  cout << "#!" << endl;
-  cout << "#! Issue " << bold_on << ":w" << bold_off << " to learn how to change it." << endl;
-  cout << "#!" << endl;
-  cout << "#! Issue " << bold_on << ":e" << bold_off << " for examples on how to use the program." << endl;
-  cout << "#! Issue " << bold_on << ":q" << bold_off << " to quit the program." << endl;
-  cout << "#!" << endl;
-  cout << "#! Please put in the path of your " << bold_on << "data" << bold_off << " file" << endl;
-  cout << "#!" << bold_on << " or a command" << bold_off << " (starting with a colon):" << endl;
+  cout << "#!" << bold_on << "         Hej, this is Datatblr " << version << "!" << bold_off << endl
+    << "#!" << endl
+    << "#! License: GNU General Public License v2.0 only" << endl
+    << "#! Issue :a to see the authors of this program" << endl
+    << "#!" << endl
+    << "#!" << " Your R working directory is currently set to" << endl
+    << "#!" << endl
+    << "#! " << bold_on << current_dir << bold_off << endl
+    << "#!" << endl
+    << "#! Issue " << bold_on << ":w" << bold_off << " to learn how to change it." << endl
+    << "#!" << endl
+    << "#! Issue " << bold_on << ":e" << bold_off << " for examples on how to use the program." << endl
+    << "#! Issue " << bold_on << ":q" << bold_off << " to quit the program." << endl
+    << "#!" << endl
+    << "#! Please put in the path of your " << bold_on << "data" << bold_off << " file" << endl
+    << "#!" << bold_on << " or a command" << bold_off << " (starting with a colon):" << endl;
 }
 
 // Include the command line functions
@@ -116,8 +116,8 @@ void initiate(string input)
     // Write value from adress
     string data_file = *ptr_data;
 
-    cout << "#! Please put in the path of your " << bold_on << "meta" << bold_off << " file:" << endl;
-    cout << "#~ ";
+    cout << "#! Please put in the path of your " << bold_on << "meta" << bold_off << " file:" << endl
+      << "#~ ";
     cin >> input;
   }
 }
@@ -154,8 +154,8 @@ int main()
   if (r_check != 0)
   {
     quit_flag = true;
-    cout << "#! I couldn't find R on your system." << endl;
-    cout << "#! Please install R (v.3.6.0 or newer)!" << endl;
+    cout << "#! I couldn't find R on your system." << endl
+      << "#! Please install R (v.3.6.0 or newer)!" << endl;
     sleep(3);
   }
   else
@@ -209,8 +209,8 @@ int main()
   if (latex_check != 0)
   {
     quit_flag = true;
-    cout << "#! I couldn't find LaTeX on your system." << endl;
-    cout << "#! Please install a LaTeX distribution!" << endl;
+    cout << "#! I couldn't find LaTeX on your system." << endl
+      << "#! Please install a LaTeX distribution!" << endl;
     sleep(3);
   }
   else
@@ -223,15 +223,15 @@ int main()
   if (pandoc_check != 0)
   {
     quit_flag = true;
-    cout << "#! I couldn't find pandoc on your system." << endl;
-    cout << "#! Please install pandoc!" << endl;
+    cout << "#! I couldn't find pandoc on your system." << endl
+      << "#! Please install pandoc!" << endl;
     sleep(3);
   }
   else
   {
-    cout << "#! You have pandoc installed \U0001F4D1" << endl;
-    cout << sep << endl;
-    cout << "#!" << endl;
+    cout << "#! You have pandoc installed \U0001F4D1" << endl
+      << sep << endl
+      << "#!" << endl;
     // All dependencies are installed, so show the boot info
     boot_info();
   }
