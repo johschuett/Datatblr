@@ -22,7 +22,7 @@ Datatblr is suitable for generating table volumes that typically appear in the a
 
 You can of course just dig straight into the `R` code (starting from `render.R`) and have fun with it  :slightly_smiling_face:.
 
-The user interface is compatible with UNIX systems. If you are running **Windows**, you have to work directly with the R files!
+The user interface is compatible with UNIX systems. If you are running **Windows**, you have to work directly with the R files! (You might want to check out the [light](https://github.com/johschuett/Datatblr/tree/lite) branch.)
 
 ### License
 [GNU General Public License v2.0 only](https://github.com/johschuett/Datatblr/blob/master/LICENSE)
