@@ -70,11 +70,11 @@ void wd_info()
     << sep << endl
     << "#! You can change the default working directory for R" << endl
     << "#! simply by adding the path to your desired directory" << endl
-    << "#! to your " << bold_on << ".Rprofile" << bold_off << " inside your root directory." << endl
+    << "#! to your " << bold_on << ".Rprofile" << bold_off << " file." << endl
     << "#! If there is no such file, you can simply create one" << endl
     << "#! and add your desired directory." << endl
     << "#!" << endl
-    << "#! Place the following command in .Rprofile:" << endl
+    << "#! Place the following command in your .Rprofile file:" << endl
     << "#! " << bold_on << "setwd(\"/your/desired/directory\")" << bold_off << "." << endl
     << sep << endl;
 }
