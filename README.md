@@ -25,4 +25,4 @@ You can of course just dig straight into the `R` code (starting from `render.R`)
 The user interface is compatible with UNIX systems. If you are running **Windows**, you have to work directly with the R files! (You might want to check out the [light](https://github.com/johschuett/Datatblr/tree/lite) branch.)
 
 ### License
-[GNU General Public License v2.0 only](https://github.com/johschuett/Datatblr/blob/master/LICENSE)
+[GNU General Public License v2.0 only](https://github.com/johschuett/Datatblr/blob/master/GPL-2.0)
