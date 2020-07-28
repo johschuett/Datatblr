@@ -7,122 +7,106 @@
 
 using namespace std;
 
+// Define function map
 typedef void (*ScriptFunction)(void);
 typedef unordered_map<string, ScriptFunction> func_map;
 
-// Globals
-bool quit_flag = false;
-func_map commands;
-string sep = "#! ---------------------------------------------------";
-string version = "stable-1.0";
+#include "headers/bold.hpp"
+#include "headers/globals.hpp"
+#include "headers/files.hpp"
+#include "headers/boot.hpp"
+#include "headers/commands.hpp"
 
-// cout formatting
-ostream& bold_on(ostream& os)
+// Class for storing valid user input
+class InputData
 {
-  return os << "\e[1m";
-}
+  public:
+    string data_file;
+    string meta_file;
+    int missing_option;
+};
 
-ostream& bold_off(ostream& os)
-{
-  return os << "\e[0m";
-}
-
-// File exists function
-inline bool file_exists(const string& name)
-{
-  struct stat buffer;
-  return (stat (name.c_str(), &buffer) == 0);
-}
-
-// File extension
-bool file_extension(string file, string extension)
-{
-  return file.substr(file.find_last_of(".") + 1) == extension;
-}
-
-void boot_info()
-{
-  // Get working directory and write it into .current_dir file
-  string current_dir = "NULL";
-  int get_current_dir = system("Rscript -e \"cat(getwd())\" > .current_dir");
-
-  // Returned !0 -> Error
-  if (get_current_dir != 0)
-  {
-    quit_flag = true;
-    cout << "#! " << bold_on << "ERROR:" << bold_off << " Couldn't get working directory." << endl
-      << "#!        Check " << bold_on << ".Rprofile!" << bold_off << endl
-      << "#!" << endl;
-    sleep(1);
-  }
-  // Returned 0
-  else
-  {
-    ifstream dir_file (".current_dir");
-    // Couldn't open file
-    if(!dir_file.is_open())
-    {
-      cout << "#! " << bold_on << "ERROR:" << bold_off << " File Open" << endl
-        << "#!" << endl;
-    }
-    // Read file
-    else
-    {
-      getline(dir_file, current_dir, '\n');
-      dir_file.close();
-    }
-  }
-
-  // Print infotext
-  cout << "#!" << bold_on << "         Hej, this is Datatblr " << version << "!" << bold_off << endl
-    << "#!" << endl
-    << "#! License: GNU General Public License v2.0 only" << endl
-    << "#! Issue :a to see the authors of this program" << endl
-    << "#!" << endl
-    << "#!" << " Your R working directory is currently set to" << endl
-    << "#!" << endl
-    << "#! " << bold_on << current_dir << bold_off << endl
-    << "#!" << endl
-    << "#! Issue " << bold_on << ":w" << bold_off << " to learn how to change it." << endl
-    << "#!" << endl
-    << "#! Issue " << bold_on << ":e" << bold_off << " for examples on how to use the program." << endl
-    << "#! Issue " << bold_on << ":q" << bold_off << " to quit the program." << endl
-    << "#!" << endl
-    << "#! Please put in the path of your " << bold_on << "data" << bold_off << " file" << endl
-    << "#!" << bold_on << " or a command" << bold_off << " (starting with a colon):" << endl;
-}
-
-// Include the command line functions
-#include "header/command_line.hpp"
-
-// Input = data file
+// If input == data file
 void initiate(string input)
 {
-  // File couldn't be found
-  if (!file_exists(input))
+  bool abort;
+  int num_input;
+  string missing_description;
+  string* ptr_data;
+  InputData currentInput;
+
+  // File couldn't be found or is not a CSV file
+  if (!valid_csv(input))
   {
-    cout << "#! Oops, I couldn't find your file..." << endl;
-  }
-  // File is not a CSV file
-  else if (!file_extension(input, "csv"))
-  {
-    cout << "#! Oops, I only eat .csv files... (case sensitive)" << endl;
+    cout << "#! Your meta file either isn't a csv file or doesn't" << endl\
+      << "#! exist at all." << endl;
   }
   // File seems fine
   else
   {
-    // Get adress of input
-    string* ptr_data = &input;
-    // Write value from adress
-    string data_file = *ptr_data;
+    ptr_data = &input;
+    currentInput.data_file = *ptr_data;
 
-    cout << "#! Please put in the path of your " << bold_on << "meta" << bold_off << " file:" << endl
+    cout << "#! Please put in the path of your " << bold_on << "meta" << bold_off << " file" << endl\
+      << "#! (or :q to abort):" << endl\
       << "#~ ";
     cin >> input;
+
+    while (!valid_csv(input))
+    {
+      if (input == ":q")
+      {
+        abort = true;
+        break;
+      }
+      cout << "#! Your meta file either isn't a csv file or doesn't" << endl\
+        << "#! exist at all." << endl\
+        << "#! Please put in the path of your " << bold_on << "meta" << bold_off << " file" << endl\
+        << "#! (or :q to abort):" << endl\
+        << "#~ ";
+      cin >> input;
+    }
+
+    if (!abort) {
+      ptr_data = &input;
+      currentInput.meta_file = *ptr_data;
+
+      cout << "#! Please specify, whether missing values" << endl\
+        << "#! should be summarized (1) or ignored (2):" << endl\
+        << "#~ ";
+      cin >> num_input;
+
+      while (num_input != 1 && num_input != 2)
+      {
+        cout << "#! Please pick 1 or 2!" << endl\
+          << "#! Please specify, whether missing values" << endl\
+          << "#! should be summarized (1) or ignored (2):" << endl\
+          << "#~ ";
+        cin >> num_input;
+      }
+
+      switch (num_input)
+      {
+        case 1:
+          missing_description = "Summarize missing values (1)";
+          break;
+        case 2:
+          missing_description = "Ignore missing values (2)";
+          break;
+        default:
+          missing_description = "Something went wrong!";
+          break;
+      }
+
+      cout << "#! Please check your inputs:" << endl\
+        << "#! Data file: " << currentInput.data_file << endl\
+        << "#! Meta file: " << currentInput.meta_file << endl\
+        << "#! Missings : " << missing_description << endl;
+    }
   }
 }
 
-// Search for input inside commands map
+// If input = command: Search for input inside commands map
 void call_func(const std::string& input)
 {
     auto iter = commands.find(input);
