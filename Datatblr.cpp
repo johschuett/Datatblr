@@ -43,7 +43,7 @@ void initiate(string input)
   // valid_csv() -> headers/files.hpp
   if (!valid_csv(input))
   {
-    cout << "#! Your data file either isn't a csv file or doesn't" << endl
+    cout << "#! Your " << bold_on << "data" << bold_off << " file either isn't a csv file or doesn't" << endl
       << "#! exist at all (or possibly both)." << endl;
   }
   // File seems fine
@@ -64,8 +64,9 @@ void initiate(string input)
         abort = true;
         break;
       }
-      cout << "#! Your meta file either isn't a csv file or doesn't" << endl
+      cout << "#! Your " << bold_on << "meta" << bold_off << " file either isn't a csv file or doesn't" << endl
         << "#! exist at all (or possibly both)." << endl
+        << "#!" << endl
         << "#! Please put in the path of your " << bold_on << "meta" << bold_off << " file" << endl
         << "#! (or :q to abort):" << endl
         << "#~ ";
@@ -76,8 +77,9 @@ void initiate(string input)
       ptr_data = &input;
       currentInput.meta_file = *ptr_data;
 
-      cout << "#! Please specify whether missing values" << endl
-        << "#! should be summarized (1) or ignored (2):" << endl
+      cout << "#! Please specify whether " << bold_on << "missing values" << bold_off << endl
+        << "#! should be "<< bold_on << "summarized (1)" << bold_off << " or " << bold_on
+        << "ignored (2)" << bold_off << ":" << endl
         << "#~ ";
       cin >> num_input;
 
@@ -89,9 +91,10 @@ void initiate(string input)
           cin.ignore();
         }
 
-        cout << "#! Please type 1 or 2!" << endl
-          << "#! Please specify whether missing values" << endl
-          << "#! should be summarized (1) or ignored (2):" << endl
+        cout << "#! " << bold_on << "Please type 1 or 2!" << bold_off << endl
+          << "#! Please specify whether " << bold_on << "missing values" << bold_off << endl
+          << "#! should be "<< bold_on << "summarized (1)" << bold_off << " or " << bold_on
+          << "ignored (2)" << bold_off << ":" << endl
           << "#~ ";
         cin >> num_input;
       }
@@ -106,7 +109,6 @@ void initiate(string input)
           break;
         default:
           missing_description = "Something went wrong!";
-          cin.clear();
           break;
       }
 
@@ -118,7 +120,7 @@ void initiate(string input)
         << "#! " << bold_on << "Missings"<< bold_off << " : " << missing_description << endl
         << sep << endl
         << "#!" << endl
-        << "#! Do you wish to generate a report" << endl
+        << "#! Do you wish to " << bold_on << "generate a report" << bold_off << endl
         << "#! based on these settings? <y/n>:" << endl
         << "#~ ";
         cin >> input;
@@ -127,11 +129,13 @@ void initiate(string input)
 
         while (input != "y" && input != "n")
         {
-          cout << "#! Please type y or n!" << endl
-            << "#! Do you wish to generate a report" << endl
+          cout << "#! " << bold_on << "Please type y or n!" << bold_off << endl
+            << "#! Do you wish to " << bold_on << "generate a report" << bold_off << endl
             << "#! based on these settings? <y/n>:" << endl
             << "#~ ";
           cin >> input;
+
+          transform(input.begin(), input.end(), input.begin(), ::tolower);
         }
 
         if (input == "y")
