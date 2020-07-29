@@ -23,7 +23,7 @@ classoption: 10pt, twoside
 knitr::opts_chunk$set(echo = FALSE)
 
 # Read main.R
-knitr::read_chunk('main.R')
+knitr::read_chunk("main.R")
 ```
 
 
