@@ -15,11 +15,11 @@ typedef unordered_map<string, ScriptFunction> func_map;
 // Create function map for user commands
 func_map commands;
 
-#include "headers/formatting.hpp"
-#include "headers/globals.hpp"
-#include "headers/files.hpp"
-#include "headers/boot.hpp"
-#include "headers/commands.hpp"
+#include "include/formatting.hpp"
+#include "include/globals.hpp"
+#include "include/files.hpp"
+#include "include/boot.hpp"
+#include "include/commands.hpp"
 
 // Struct for storing valid user input
 struct InputData
@@ -103,12 +103,15 @@ void initiate(string input)
       switch (num_input)
       {
         case 1:
+          currentInput.missing_option = 1;
           missing_description = "Summarize missing values (1)";
           break;
         case 2:
+          currentInput.missing_option = 2;
           missing_description = "Ignore missing values (2)";
           break;
         default:
+          currentInput.missing_option = 0;
           missing_description = "Something went wrong!";
           break;
       }
@@ -116,13 +119,13 @@ void initiate(string input)
       cout << "#! Please check your inputs:" << endl
         << "#!" << endl
         << sep << endl
-        << "#! " << bold_on << "Data" << bold_off << " file: " << currentInput.data_file << endl
-        << "#! "<< bold_on << "Meta" << bold_off << " file: " << currentInput.meta_file << endl
+        << "#! " << bold_on << "Data" << bold_off << " file: " << split_filename(currentInput.data_file) << endl
+        << "#! "<< bold_on << "Meta" << bold_off << " file: " << split_filename(currentInput.meta_file) << endl
         << "#! " << bold_on << "Missings"<< bold_off << " : " << missing_description << endl
         << sep << endl
         << "#!" << endl
         << "#! Do you wish to " << bold_on << "generate a report" << bold_off << endl
-        << "#! based on these settings? <y/n>:" << endl
+        << "#! based on these inputs? <y/n>:" << endl
         << "#~ ";
         cin >> input;
 
@@ -132,7 +135,7 @@ void initiate(string input)
         {
           cout << "#! " << bold_on << "Please type y or n!" << bold_off << endl
             << "#! Do you wish to " << bold_on << "generate a report" << bold_off << endl
-            << "#! based on these settings? <y/n>:" << endl
+            << "#! based on these inputs? <y/n>:" << endl
             << "#~ ";
           cin >> input;
 
@@ -142,6 +145,35 @@ void initiate(string input)
         if (input == "y")
         {
           cout << "#! Generating \U0001F529 ..." << endl;
+
+          // Write a csv file containing the collected information for the R script
+          string job_path = current_dir + "/job.csv";
+
+          ofstream job_file (job_path);
+          // Couldn't open file
+          if(!job_file.is_open())
+          {
+            cout << "#! " << bold_on << "ERROR:" << bold_off << " File Open" << endl
+              << "#!" << endl;
+          }
+          // Read file
+          else
+          {
+            job_file << "key\tvalue" << endl
+              << "data_file" << "\t" << currentInput.data_file << endl
+              << "meta_file" << "\t" << currentInput.meta_file << endl
+              << "missings" << "\t" << currentInput.missing_option << endl;
+            job_file.close();
+
+            // Run R script
+            cout << sep << endl
+              << "#! R -------------------------------------------------" << endl
+              << endl;
+            system("Rscript R/render.R");
+            cout << endl
+              << "#! R END ---------------------------------------------" << endl
+              << sep << endl;
+          }
         }
         else
         {
