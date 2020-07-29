@@ -1,7 +1,7 @@
 void boot_info()
 {
   // Get working directory and write it into .current_dir file
-  string current_dir = "NULL";
+  current_dir = "NULL";
   int get_current_dir = system("Rscript -e \"cat(getwd())\" > .current_dir");
 
   // Returned !0 -> Error
