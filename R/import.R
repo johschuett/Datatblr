@@ -1,7 +1,6 @@
 # import.R
 # This script imports the data from the CSV files and sorts them
 
-
 # Import job file
 job <- import("job.csv")
 
