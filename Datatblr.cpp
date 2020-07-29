@@ -184,7 +184,7 @@ void initiate(string input)
 }
 
 // If input = command: Search for input inside commands map
-void call_func(const std::string& input)
+void call_func(const string& input)
 {
     auto iter = commands.find(input);
     if (iter == commands.end())
