@@ -1,13 +1,22 @@
 # import.R
 # This script imports the data from the CSV files and sorts them
 
+
+# Import job file
+job <- import("job.csv")
+
+# Get data from job file
+for (.row in seq_len(nrow(job))) {
+  assign(job[.row, 1], job[.row, 2])
+}
+
 # Import data from file
-data <- import("csv/data.csv")
+data <- import(data_file)
 # Convert missing entries to NAs
 data[data == ""] <- NA
-# Import metadata and options from files
-meta <- import("csv/meta.csv")
-options <- import("csv/options.csv")
+# Import metadata from file
+meta <- import(meta_file)
+
 
 # Get survey title
 survey_title <- subset(meta, name == "surveyls_title")
@@ -88,11 +97,6 @@ for (.el in var_type) {
   .a <- .a + 1
 }
 
-# Get options
-for (.row in seq_len(nrow(options))) {
-  assign(options[.row, 1], options[.row, 2])
-}
-
 # Free memory
 rm(.a, .b, .com, .el, .i, .list_length, .list_syntax, .row, class, current_type,
-  last_row, meta, name, options, text, type, var_row, var_type)
+  last_row, meta, name, text, type, var_row, var_type)
