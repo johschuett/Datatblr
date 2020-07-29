@@ -69,12 +69,12 @@ void wd_info()
   cout << "#! Changing the working directory:" << endl
     << sep << endl
     << "#! You can change the default working directory for R" << endl
-    << "#! simply by adding the path to your desired directory" << endl
-    << "#! to your " << bold_on << ".Rprofile" << bold_off << " file." << endl
+    << "#! simply by adding the " << bold_on << "path to the \"R\" subfolder" << bold_off << " of" << endl
+    << "#! the project folder to your " << bold_on << ".Rprofile" << bold_off << " file." << endl
     << "#! If there is no such file, you can simply create one" << endl
-    << "#! and add your desired directory." << endl
+    << "#! and add the directory." << endl
     << "#!" << endl
     << "#! Place the following command in your .Rprofile file:" << endl
-    << "#! " << bold_on << "setwd(\"/your/desired/directory\")" << bold_off << "." << endl
+    << "#! " << bold_on << "setwd(\"/path/to/datatblr/R\")" << bold_off << "." << endl
     << sep << endl;
 }
