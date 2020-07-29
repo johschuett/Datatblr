@@ -7,6 +7,7 @@
 
 # User-specific files
 .Ruserdata
+.Rprofile
 
 # Example code in package build process
 *-Ex.R
@@ -56,6 +57,7 @@ Datatblr
 # Ignore test csv files
 data.csv
 meta.csv
+job.csv
 
 # Ignore debug folder
 *.dSYM
