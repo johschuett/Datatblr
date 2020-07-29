@@ -21,13 +21,12 @@ func_map commands;
 #include "headers/boot.hpp"
 #include "headers/commands.hpp"
 
-// Class for storing valid user input
-class InputData
+// Struct for storing valid user input
+struct InputData
 {
-  public:
-    string data_file;
-    string meta_file;
-    int missing_option;
+  string data_file;
+  string meta_file;
+  int missing_option;
 };
 
 // If input == data file
@@ -38,6 +37,8 @@ void initiate(string input)
   string missing_description;
   string* ptr_data;
   InputData currentInput;
+
+  abort = false;
 
   // File either couldn't be found or isn't a csv file (or both)
   // valid_csv() -> headers/files.hpp
@@ -140,7 +141,7 @@ void initiate(string input)
 
         if (input == "y")
         {
-          cout << "#! Generating ..." << endl;
+          cout << "#! Generating \U0001F529 ..." << endl;
         }
         else
         {
