@@ -56,3 +56,6 @@ Datatblr
 # Ignore test csv files
 data.csv
 meta.csv
+
+# Ignore debug folder
+*.dSYM
