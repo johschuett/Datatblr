@@ -35,7 +35,6 @@ void initiate(string input)
   bool abort;
   int num_input;
   string missing_description;
-  string* ptr_data;
   InputData currentInput;
 
   abort = false;
@@ -50,8 +49,7 @@ void initiate(string input)
   // File seems fine
   else
   {
-    ptr_data = &input;
-    currentInput.data_file = *ptr_data;
+    currentInput.data_file = input;
 
     cout << "#! Please put in the path of your " << bold_on << "meta" << bold_off << " file" << endl
       << "#! (or :q to abort):" << endl
@@ -75,8 +73,7 @@ void initiate(string input)
     }
 
     if (!abort) {
-      ptr_data = &input;
-      currentInput.meta_file = *ptr_data;
+      currentInput.meta_file = input;
 
       cout << "#! Please specify whether " << bold_on << "missing values" << bold_off << endl
         << "#! should be "<< bold_on << "summarized (1)" << bold_off << " or " << bold_on
