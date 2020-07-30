@@ -7,7 +7,8 @@
 
 # Version: R 4.0.0
 
-## @knitr setup
+# Set encoding
+Sys.setlocale("LC_ALL", "en_US.UTF-8")
 
 # Packages
 library(dplyr)    # Version 1.0.0
@@ -16,9 +17,6 @@ library(rio)      # Version 0.5.16
 
 # Scripts
 source("import.R")
-
-## @knitr main
-
 source("functions.R")
 source("prep_output.R")
 source("gen_f_m.R")

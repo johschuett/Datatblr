@@ -166,7 +166,7 @@ void initiate(string input)
             cout << sep << endl
               << "#! R -------------------------------------------------" << endl
               << endl;
-            system("Rscript R/render.R");
+            system("Rscript R/main.R");
             cout << endl
               << "#! R END ---------------------------------------------" << endl
               << sep << endl;
@@ -221,7 +221,7 @@ int main()
     cout << "#! You have R installed \U0001F4CA" << endl;
   }
 
-  // Checking R packages (dplyr, knitr, pkcond, rio) and install the missing ones
+  // Checking R packages (dplyr, pkgcond, rio) and install the missing ones
 
   // Check internet connection
   int connection = system("ping -c 1 r-project.org 2>&1 >/dev/null");
@@ -230,7 +230,7 @@ int main()
     // No internet connection, just check for the packages
     // and throw a warning if a package is missing
     system("Rscript -e \"\
-    required_packages <- c('dplyr', 'knitr', 'pkgcond', 'rio');\
+    required_packages <- c('dplyr', 'pkgcond', 'rio');\
     missing_packages <- required_packages[!(required_packages %in% installed.packages()[,'Package'])];\
     if (length(missing_packages)) {\
     cat('#! Missing packages; no internet connection.')\
@@ -244,7 +244,7 @@ int main()
     // Internet connection, Check for the packages
     // and try to install missing packages
     system("Rscript -e \"\
-    required_packages <- c('dplyr', 'knitr', 'pkgcond', 'rio');\
+    required_packages <- c('dplyr', 'pkgcond', 'rio');\
     missing_packages <- required_packages[!(required_packages %in% installed.packages()[,'Package'])];\
     if (length(missing_packages)) {\
     cat('#! Installing missing R package(s)...\n');\
