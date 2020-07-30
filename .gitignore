@@ -45,3 +45,11 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+
+.current_dir
+job.csv
+meta.csv
+data.csv
+Datatblr
+Datatblr.o
