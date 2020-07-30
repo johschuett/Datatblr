@@ -273,23 +273,10 @@ int main()
   }
   else
   {
-    cout << "#! You have a LaTeX distribution installed \U0001F4C4" << endl;
-  }
-
-  cout << "#! Checking your pandoc installation..." << endl;
-  int pandoc_check = system("pandoc --version > /dev/null");
-  if (pandoc_check != 0)
-  {
-    quit_flag = true;
-    cout << "#! I couldn't find pandoc on your system." << endl
-      << "#! Please install pandoc!" << endl;
-    sleep(3);
-  }
-  else
-  {
-    cout << "#! You have pandoc installed \U0001F4D1" << endl
+    cout << "#! You have a LaTeX distribution installed \U0001F4C4" << endl
       << sep << endl
       << "#!" << endl;
+
     // All dependencies are installed, so show the boot info
     boot_info();
   }

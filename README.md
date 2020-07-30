@@ -14,7 +14,6 @@ Datatblr is suitable for generating table volumes that typically appear in the a
   * [pkgcond](https://cran.r-project.org/web/packages/pkgcond/index.html) package
   * [rio](https://cran.r-project.org/web/packages/rio/index.html) package
 * LaTeX [TeX Live](https://www.tug.org/texlive/)
-* pandoc  [PANDOC.ORG](https://pandoc.org/)
 
 ### Compile & Run
 **UNIX:** To compile the Datatblr user interface, run the command `make` inside your console in the directory of the program folder. After that, you can run the compiled executable by double-clicking on it or by running the command `./Datatblr`.
