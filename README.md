@@ -16,7 +16,7 @@ Datatblr is suitable for generating table volumes that typically appear in the a
 * LaTeX [TeX Live](https://www.tug.org/texlive/)
 
 ### Compile & Run
-**UNIX:** To compile the Datatblr user interface, run the command `make` inside your console in the directory of the program folder. After that, you can run the compiled executable by double-clicking on it or by running the command `./Datatblr`.
+**UNIX:** To compile the Datatblr user interface, run the command `make` inside your console in the `src` directory of the project folder. After that, you can run the compiled executable by double-clicking on it or by running the command `./Datatblr`. Of course, you can move the executable file anywhere on your computer.
 
 You can of course just dig straight into the `R` code (starting from `main.R`) and have fun with it  :slightly_smiling_face:.
 
