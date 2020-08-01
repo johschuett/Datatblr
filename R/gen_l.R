@@ -105,5 +105,7 @@ sep = "")
 }
 
 # Free memory
-rm(.com, .el, .i, .row, absolute_na, current_variable, pack, relative_total, table_label,
+if (exists("absolute_na")) rm(absolute_na)
+
+rm(.com, .el, .i, .row, current_variable, pack, relative_total, table_label,
    table_title, total, value, value_absolute, value_cum_absolute, value_cum_relative, value_label, value_relative)

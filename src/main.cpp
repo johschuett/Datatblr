@@ -43,7 +43,7 @@ int main()
     // No internet connection, just check for the packages
     // and throw a warning if a package is missing
     system("Rscript -e \"\
-    required_packages <- c('dplyr', 'pkgcond', 'rio');\
+    required_packages <- c('dplyr', 'rio');\
     missing_packages <- required_packages[!(required_packages %in% installed.packages()[,'Package'])];\
     if (length(missing_packages)) {\
     cat('#! Missing packages; no internet connection.')\
@@ -57,7 +57,7 @@ int main()
     // Internet connection, Check for the packages
     // and try to install missing packages
     system("Rscript -e \"\
-    required_packages <- c('dplyr', 'pkgcond', 'rio');\
+    required_packages <- c('dplyr', 'rio');\
     missing_packages <- required_packages[!(required_packages %in% installed.packages()[,'Package'])];\
     if (length(missing_packages)) {\
     cat('#! Installing missing R package(s)...\n');\

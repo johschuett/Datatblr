@@ -48,12 +48,12 @@ pack,
     }
     # ... or ignore missings
     else if (missings == 2) {
-      .com <- paste("absNa <- as.numeric(count(dplyr::filter(data, (is.na(", .el, ") | ", .el, " %!in% answer))))", sep = "")
+      .com <- paste("absolute_na <- as.numeric(count(dplyr::filter(data, (is.na(", .el, ") | ", .el, " %!in% answer))))", sep = "")
       # For Stata users: You can use the following command to filter missings
       # by searching for values starting with a full stop:
       # .com <- paste("as.numeric(count(dplyr::filter(data, (is.na(", .el ,") | substr(", .el, ", 1, 1) == '.'))))", sep = "")
       eval(parse(text = .com))
-      total <- count(data) - absNa
+      total <- count(data) - absolute_na
     }
 
     # Calculate the numerical values for the table
@@ -127,6 +127,8 @@ sep = "")
 }
 
 # Free memory
-rm(.a, .b, .com, .el, .row, .y, absNa, answer, answer_absolute, answer_relative,
+if (exists("absolute_na")) rm(absolute_na)
+
+rm(.a, .b, .com, .el, .row, .y, answer, answer_absolute, answer_relative,
   answer_cum_absolute, answer_cum_relative, answer_label, pack, relative_total,
   subquestion, subquestion_label, table_label, table_title, total)

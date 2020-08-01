@@ -12,8 +12,9 @@ Sys.setlocale("LC_ALL", "en_US.UTF-8")
 
 # Packages
 library(dplyr)    # Version 1.0.0
-library(pkgcond)  # Version 0.1.0
 library(rio)      # Version 0.5.16
+
+'%!in%' <- function(x,y)!('%in%'(x,y))
 
 # Scripts
 source("import.R")

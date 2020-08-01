@@ -29,7 +29,6 @@ write(preamble, file = "report.tex", append = FALSE)
 for (.el in var_name) {
   variable_positions <- dplyr::filter(order, (order[, 1] == .el))
   variable_positions <- as.numeric(variable_positions[1, 2])
-  cat(output[[variable_positions]])
   write(output[[variable_positions]], file = "report.tex", append = TRUE)
 }
 

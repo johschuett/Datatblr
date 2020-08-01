@@ -11,7 +11,6 @@ Datatblr is suitable for generating table volumes that typically appear in the a
 ### Dependencies
 * R base (3.6.3 or newer)  [CRAN](https://cloud.r-project.org/)
   * [dplyr](https://cran.r-project.org/web/packages/dplyr/index.html) package
-  * [pkgcond](https://cran.r-project.org/web/packages/pkgcond/index.html) package
   * [rio](https://cran.r-project.org/web/packages/rio/index.html) package
 * LaTeX [TeX Live](https://www.tug.org/texlive/)
 
