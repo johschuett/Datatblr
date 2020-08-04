@@ -14,7 +14,8 @@ Sys.setlocale("LC_ALL", "en_US.UTF-8")
 library(dplyr)    # Version 1.0.0
 library(rio)      # Version 0.5.16
 
-'%!in%' <- function(x,y)!('%in%'(x,y))
+# Define %!in% operator
+'%!in%' <- function(x, y)!('%in%'(x, y))
 
 # Scripts
 source("import.R")
