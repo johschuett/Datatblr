@@ -37,7 +37,7 @@ int main()
   // Checking R packages (dplyr, pkgcond, rio) and install the missing ones
 
   // Check internet connection
-  int connection = system("ping -c 1 r-project.org 2>&1 >/dev/null");
+  int connection = system("ping -c 1 cran.us.r-project.org &>/dev/null");
   if (connection != 0)
   {
     // No internet connection, just check for the packages
@@ -46,7 +46,8 @@ int main()
     required_packages <- c('dplyr', 'rio');\
     missing_packages <- required_packages[!(required_packages %in% installed.packages()[,'Package'])];\
     if (length(missing_packages)) {\
-    cat('#! Missing packages; no internet connection.')\
+    cat('#! Packages are missing,\n');\
+    cat('#! but I couldn\\'t establish a connection to CRAN.\n');\
     }\
     else {\
     cat('#! You have all required R packages installed \U0001F5C3\n');\
