@@ -104,4 +104,4 @@ for (.el in var_type) {
 
 # Free memory
 rm(.a, .b, .com, .el, .i, .list_length, .list_syntax, .row, class, current_type,
-  last_row, meta, name, text, type, var_row, var_type)
+  last_row, line_of_title, meta, name, text, type, var_row, var_type)
