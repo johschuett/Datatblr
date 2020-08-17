@@ -16,10 +16,16 @@ data[data == ""] <- NA
 # Import metadata from file
 meta <- import(meta_file)
 
-
 # Get survey title
-survey_title <- subset(meta, name == "surveyls_title")
-survey_title <- survey_title[1, 5]
+line_of_title <- which(meta$name == "surveyls_title")
+
+if (is.integer(line_of_title) && length(line_of_title) == 0L) {
+  survey_title <- "Untitled"
+} else if (is.vector(check)) {
+  survey_title <- meta[line_of_title[1], 5]
+} else {
+  survey_title <- meta[line_of_title, 5]
+}
 
 # Information about the survey variables
 # Possible survey variable types are: matrix, multiple-choice,
