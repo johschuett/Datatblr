@@ -2,7 +2,7 @@
 ##### Author: Johannes Schütt
 ##### Co-author: Claudia Saalbach
 
-##### [Chair of Empirical Social Research Methods at the University of Potsdam](https://uni-potsdam.de/soziologie-methoden), Universität Potsdam
+##### [Chair of Empirical Social Research Methods at the University of Potsdam](https://uni-potsdam.de/soziologie-methoden)
 
 Datatblr is a program that generates a table collection with the univariate description of all metric and categorical variables in a dataset. Datatblr delivers a LaTeX and a pdf-document.
 
