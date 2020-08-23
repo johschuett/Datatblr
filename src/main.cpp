@@ -34,7 +34,7 @@ int main()
     cout << "#! You have R installed \U0001F4CA" << endl;
   }
 
-  // Checking R packages (dplyr, pkgcond, rio) and install the missing ones
+  // Checking R packages (dplyr, rio) and install the missing ones
 
   // Check internet connection
   int connection = system("ping -c 1 cran.us.r-project.org &>/dev/null");

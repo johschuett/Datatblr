@@ -57,6 +57,8 @@ Datatblr
 data.csv
 meta.csv
 job.csv
+marx_data.csv
+marx_de.csv
 
 # Ignore debug folder
 *.dSYM
