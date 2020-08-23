@@ -29,4 +29,4 @@ initiate.o: initiate.cpp
 
 
 clean:
-	rm $(SOURCES) Datatblr
+	rm $(SOURCES)
