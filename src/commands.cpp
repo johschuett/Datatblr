@@ -11,13 +11,13 @@ void authors()
     << "#! Co-author: Claudia Saalbach" << endl
     << "#!" << endl
     << "#! Datatblr is part of the survey.codes project" << endl
-    << "#! Visit https://www.survey.codes" << endl
+    << "#! Visit https://survey.codes/datatblr" << endl
     << "#!" << endl
     << "#! Chair of Empirical Social Research" << endl
     << "#! at the University of Potsdam" << endl
     << "#!" << endl
     << "#! Visit the repository for updates:" << endl
-    << "#! https://www.github.com/johschuett/Datatblr" << endl
+    << "#! https://github.com/johschuett/Datatblr" << endl
     << sep << endl;
 }
 
