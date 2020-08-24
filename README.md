@@ -22,13 +22,19 @@ To build the Datatblr user interface, run the command
 sh build.sh
 ```
 
-inside the project folder. After that, you can run the executable by running the command
+inside the project folder. After that, you can run the executable by double-clicking on it or by running the command
 
 ```shell
 ./Datatblr
 ```
 
-You can of course just dig straight into the `R` code (starting from `main.R`) and have fun with it  :slightly_smiling_face:.
+You can move the executable as you like. Make sure to set your R working directory to `/path/to/Datatblr` **or** to move the `dtblr_core` folder into your own working directory. Your reports will be saved there.
+
+You can set your working directory in your `.Rprofile` with this command:
+
+```R
+setwd("/path/to/working_directory")
+```
 
 The user interface is compatible with UNIX systems. If you are running **Windows**, you have to work directly with the R files! (You might want to check out the [lite](https://github.com/johschuett/Datatblr/tree/lite) branch.)
 

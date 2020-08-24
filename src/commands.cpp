@@ -78,6 +78,6 @@ void wd_info()
     << "#! and add the directory." << endl
     << "#!" << endl
     << "#! Place the following command in your .Rprofile file:" << endl
-    << "#! " << bold_on << "setwd(\"/path/to/datatblr/R\")" << bold_off << "." << endl
+    << "#! " << bold_on << "setwd(\"/path/to/Datatblr\")" << bold_off << "." << endl
     << sep << endl;
 }
