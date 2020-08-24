@@ -3,4 +3,4 @@
 # is located on your machine. You must then remove the number sign
 # at the beginning of the command (line 6)
 #
-# setwd("/Users/schuett/Repositories/Datatblr/R")
+# setwd("/Users/schuett/Repositories/Datatblr")
