@@ -14,7 +14,7 @@ Datatblr is suitable for generating table volumes that typically appear in the a
   * [rio](https://cran.r-project.org/web/packages/rio/index.html) package
 * LaTeX [TeX Live](https://www.tug.org/texlive/)
 
-### Compile & Run
+### Build & Run
 **UNIX:**
 To build the Datatblr user interface, run the command
 
