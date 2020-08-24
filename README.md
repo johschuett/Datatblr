@@ -15,14 +15,14 @@ Datatblr is suitable for generating table volumes that typically appear in the a
 * LaTeX [TeX Live](https://www.tug.org/texlive/)
 
 ### Compile & Run
-**UNIX:** 
-To compile the Datatblr user interface, run the command
+**UNIX:**
+To build the Datatblr user interface, run the command
 
 ```shell
 sh build.sh
 ```
 
-inside the project folder. After that, you can run the compiled executable by double-clicking on it or by running the command 
+inside the project folder. After that, you can run the executable by running the command
 
 ```shell
 ./Datatblr
@@ -30,7 +30,7 @@ inside the project folder. After that, you can run the compiled executable by do
 
 You can of course just dig straight into the `R` code (starting from `main.R`) and have fun with it  :slightly_smiling_face:.
 
-The user interface is compatible with UNIX systems. If you are running **Windows**, you have to work directly with the R files! (You might want to check out the [light](https://github.com/johschuett/Datatblr/tree/lite) branch.)
+The user interface is compatible with UNIX systems. If you are running **Windows**, you have to work directly with the R files! (You might want to check out the [lite](https://github.com/johschuett/Datatblr/tree/lite) branch.)
 
 ### License
 [GNU General Public License v2.0 only](https://github.com/johschuett/Datatblr/blob/master/GPL-2.0)
