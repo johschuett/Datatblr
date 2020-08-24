@@ -14,7 +14,7 @@ line_of_title <- which(meta$name == "surveyls_title")
 
 if (is.integer(line_of_title) && length(line_of_title) == 0L) {
   survey_title <- "Untitled"
-} else if (is.vector(check)) {
+} else if (is.vector(line_of_title)) {
   survey_title <- meta[line_of_title[1], 5]
 } else {
   survey_title <- meta[line_of_title, 5]
