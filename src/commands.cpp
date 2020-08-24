@@ -72,8 +72,8 @@ void wd_info()
   cout << "#! Changing the working directory:" << endl
     << sep << endl
     << "#! You can change the default working directory for R" << endl
-    << "#! simply by adding the " << bold_on << "path to the \"R\" subfolder" << bold_off << " of" << endl
-    << "#! the project folder to your " << bold_on << ".Rprofile" << bold_off << " file." << endl
+    << "#! simply by adding the " << bold_on << "path to the project folder" << bold_off << " to"<< endl
+    << "#! your " << bold_on << ".Rprofile" << bold_off << " file." << endl
     << "#! If there is no such file, you can simply create one" << endl
     << "#! and add the directory." << endl
     << "#!" << endl
