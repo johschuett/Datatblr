@@ -93,6 +93,14 @@ int main()
 
     // All dependencies are installed, so show the boot info
     boot_info();
+
+    // Change to working directory
+    if (chdir(current_dir.c_str()) != 0)
+    {
+      quit_flag = true;
+      cout << "#! I couldn't change to your working directory!" << endl;
+      sleep(3);
+    }
   }
 
   // Main Loop

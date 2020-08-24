@@ -117,7 +117,7 @@ void initiate(string input)
           cout << "#! Generating \U0001F529 ..." << endl;
 
           // Write a csv file containing the collected information for the R script
-          string job_path = current_dir + "/job.csv";
+          string job_path = current_dir + "/dtblr_core/job.csv";
 
           ofstream job_file (job_path);
           // Couldn't open file
@@ -139,7 +139,7 @@ void initiate(string input)
             cout << sep << endl
               << "#! R -------------------------------------------------" << endl
               << endl;
-            system("Rscript R/main.R");
+            system("Rscript dtblr_core/main.R");
             cout << endl
               << "#! R END ---------------------------------------------" << endl
               << sep << endl;
