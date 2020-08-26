@@ -36,6 +36,8 @@ You can set your working directory in your `.Rprofile` with this command:
 setwd("/path/to/working_directory")
 ```
 
+You can also add the path of the executable to your PATH environment variable and then run the program using the command `datatblr`.
+
 The user interface is compatible with UNIX systems. If you are running **Windows**, you have to work directly with the R files! (You might want to check out the [lite](https://github.com/johschuett/Datatblr/tree/lite) branch.)
 
 ### License
