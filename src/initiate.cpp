@@ -147,7 +147,7 @@ void initiate(string input)
             if (file_exists("report.pdf") && file_exists("report.tex"))
             {
               cout << "#!" << endl
-                << "#! Your report has been created \U0001F389" << endl
+                << "#! Your report has been created! \U0001F389" << endl
                 << "#!" << endl;
             }
             else
