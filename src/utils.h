@@ -38,7 +38,7 @@ void wd_info();
 void initiate(string input);
 
 // files.cpp
-inline bool file_exists(const string& name);
+bool file_exists(const string& name);
 bool file_extension(const string& file, const string& extension);
 bool valid_csv(const string& file);
 string split_filename(const string& path);
