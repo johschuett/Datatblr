@@ -148,6 +148,10 @@ void initiate(string input)
             {
               cout << "#!" << endl
                 << "#! Your report has been created! \U0001F389" << endl
+                << "#!" << endl
+                << "#! You can find your files here:" << endl
+                << "#! " << bold_on << current_dir << "/report.pdf" << bold_off << endl
+                << "#! " << bold_on << current_dir << "/report.tex" << bold_off << endl
                 << "#!" << endl;
             }
             else
