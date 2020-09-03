@@ -14,6 +14,14 @@ Datatblr is suitable for generating table volumes that typically appear in the a
   * [rio](https://cran.r-project.org/web/packages/rio/index.html) package
 * LaTeX [TeX Live](https://www.tug.org/texlive/)
 
+#### To build the program:
+* G++ compiler (std=c++17)
+* Make
+
+### Release
+
+It is recommended that you download the latest **stable release** of the program. If you download the program from the master branch, there is a chance that the program may be unstable or not run at all.
+
 ### Build & Run
 **UNIX:**
 To build the Datatblr user interface, run the command
@@ -43,5 +51,5 @@ The user interface is compatible with UNIX systems. If you are running **Windows
 ### License
 [GNU General Public License v2.0 only](https://github.com/johschuett/Datatblr/blob/master/GPL-2.0)
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of 
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
