@@ -21,7 +21,7 @@ typedef unordered_map<string, ScriptFunction> func_map;
 extern func_map commands;
 
 // boot_info.cpp
-void boot_info();
+void boot_info(bool& args_given);
 
 // call_func.cpp
 void call_func(const string& input);
@@ -33,9 +33,6 @@ void quit();
 void s_o_d();
 void table();
 void wd_info();
-
-// initiate.cpp
-void initiate(string input);
 
 // files.cpp
 bool file_exists(const string& name);
@@ -52,3 +49,9 @@ extern bool quit_flag;
 extern string current_dir;
 extern const string sep;
 extern const string version;
+
+// initiate.cpp
+void initiate(string& input, string& meta_input, int& missing_input, bool& arg_mode);
+
+// integer.cpp
+bool is_integer(const string& s);

@@ -1,12 +1,40 @@
 #include <fstream>
 #include <unistd.h>
+#include <string>
 #include "utils.h"
 
 // Create unordered map for user commands
 func_map commands;
 
-int main()
+int main(int argc, char* argv[])
 {
+  // Checking for parsed arguments
+  bool args_given = false;
+
+  string data_arg;
+  string meta_arg;
+  string missing_arg_string = "-1";
+
+  if (argc > 1)
+  {
+    // Too many/to few arguments provided
+    if (argc != 4)
+    {
+      cout << "#! 3 arguments needed!" << endl
+        << "#! Starting the program in normal mode..." << endl
+        << "#!" << endl;
+    }
+    // 3 arguments provided
+    else
+    {
+      data_arg = argv[1];
+      meta_arg = argv[2];
+      missing_arg_string = argv[3];
+
+      args_given = true;
+    }
+  }
+
   // Fill the commands map with the available commands
   commands.emplace(":a", &authors);
   commands.emplace(":e", &examples);
@@ -92,7 +120,7 @@ int main()
       << "#!" << endl;
 
     // All dependencies are installed, so show the boot info
-    boot_info();
+    boot_info(args_given);
 
     // Change to working directory
     if (chdir(current_dir.c_str()) != 0)
@@ -103,21 +131,53 @@ int main()
     }
   }
 
-  // Main Loop
-  while (!quit_flag)
+  // No args given, go into loop
+  if (!args_given)
   {
-    cout << "#~ ";
-    cin >> input;
-
-    if (input.substr(0, 1) != ":")
+    // Main Loop
+    while (!quit_flag)
     {
-      // Treat input as filename
-      initiate(input);
+      cout << "#~ ";
+      cin >> input;
+
+      if (input.substr(0, 1) != ":")
+      {
+        // Treat input as filename
+        string empty_str = "";
+        int null_value = 0;
+
+        initiate(input, empty_str, null_value, args_given);
+      }
+      else
+      {
+        // Treat input as command
+        call_func(input);
+      }
+    }
+  }
+  // Args given
+  else
+  {
+    if (!is_integer(missing_arg_string))
+    {
+      cout << missing_arg_string << " is not an integer." << endl;
     }
     else
     {
-      // Treat input as command
-      call_func(input);
+      int missing_arg = stoi(missing_arg_string);
+
+      switch (missing_arg)
+      {
+        case 1:
+          initiate(data_arg, meta_arg, missing_arg, args_given);
+          break;
+        case 2:
+          initiate(data_arg, meta_arg, missing_arg, args_given);
+          break;
+        default:
+          cout << "#! Oops, unknown missing option..." << endl;
+          break;
+      }
     }
   }
 

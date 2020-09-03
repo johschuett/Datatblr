@@ -3,7 +3,7 @@
 #include "utils.h"
 
 // If input == data file
-void initiate(string input)
+void initiate(string& input, string& meta_input, int& missing_input, bool& arg_mode)
 {
   bool abort;
   int num_input;
@@ -24,95 +24,126 @@ void initiate(string input)
   {
     currentInput.data_file = input;
 
-    cout << "#! Please put in the path of your " << bold_on << "meta" << bold_off << " file" << endl
-      << "#! (or :q to abort):" << endl
-      << "#~ ";
-    cin >> input;
-
-    while (!valid_csv(input))
+    // Normal mode
+    if (!arg_mode)
     {
-      if (input == ":q")
-      {
-        abort = true;
-        break;
-      }
-      cout << "#! Your " << bold_on << "meta" << bold_off << " file either isn't a csv file or doesn't" << endl
-        << "#! exist at all (or possibly both)." << endl
-        << "#!" << endl
-        << "#! Please put in the path of your " << bold_on << "meta" << bold_off << " file" << endl
+      cout << "#! Please put in the path of your " << bold_on << "meta" << bold_off << " file" << endl
         << "#! (or :q to abort):" << endl
         << "#~ ";
       cin >> input;
+
+      while (!valid_csv(input))
+      {
+        if (input == ":q")
+        {
+          abort = true;
+          break;
+        }
+          cout << "#! Your " << bold_on << "meta" << bold_off << " file either isn't a csv file or doesn't" << endl
+            << "#! exist at all (or possibly both)." << endl
+            << "#!" << endl
+            << "#! Please put in the path of your " << bold_on << "meta" << bold_off << " file" << endl
+            << "#! (or :q to abort):" << endl
+            << "#~ ";
+         cin >> input;
+       }
+    }
+    // Arg mode
+    else
+    {
+      if (!valid_csv(meta_input))
+      {
+        cout << "#! Your " << bold_on << "meta" << bold_off << " file either isn't a csv file or doesn't" << endl
+          << "#! exist at all (or possibly both)." << endl;
+        abort = true;
+      }
     }
 
     if (!abort) {
-      currentInput.meta_file = input;
-
-      cout << "#! Please specify whether " << bold_on << "missing values" << bold_off << endl
-        << "#! should be "<< bold_on << "summarized (1)" << bold_off << " or " << bold_on
-        << "ignored (2)" << bold_off << ":" << endl
-        << "#~ ";
-      cin >> num_input;
-
-      while (num_input != 1 && num_input != 2)
+      if (!arg_mode)
       {
-        if (cin.fail())
-        {
-          cin.clear();
-          cin.ignore();
-        }
+        currentInput.meta_file = input;
+      }
+      else
+      {
+        currentInput.meta_file = meta_input;
+      }
 
-        cout << "#! " << bold_on << "Please type 1 or 2!" << bold_off << endl
-          << "#! Please specify whether " << bold_on << "missing values" << bold_off << endl
+      if (!arg_mode)
+      {
+        cout << "#! Please specify whether " << bold_on << "missing values" << bold_off << endl
           << "#! should be "<< bold_on << "summarized (1)" << bold_off << " or " << bold_on
           << "ignored (2)" << bold_off << ":" << endl
           << "#~ ";
         cin >> num_input;
-      }
 
-      switch (num_input)
-      {
-        case 1:
-          currentInput.missing_option = 1;
-          missing_description = "Summarize missing values (1)";
-          break;
-        case 2:
-          currentInput.missing_option = 2;
-          missing_description = "Ignore missing values (2)";
-          break;
-        default:
-          currentInput.missing_option = 0;
-          missing_description = "Something went wrong!";
-          break;
-      }
-
-      cout << "#! Please check your inputs:" << endl
-        << "#!" << endl
-        << sep << endl
-        << "#! " << bold_on << "Data" << bold_off << " file: " << split_filename(currentInput.data_file) << endl
-        << "#! "<< bold_on << "Meta" << bold_off << " file: " << split_filename(currentInput.meta_file) << endl
-        << "#! " << bold_on << "Missings"<< bold_off << " : " << missing_description << endl
-        << sep << endl
-        << "#!" << endl
-        << "#! Do you wish to " << bold_on << "generate a report" << bold_off << endl
-        << "#! based on these inputs? <y/n>:" << endl
-        << "#~ ";
-        cin >> input;
-
-        transform(input.begin(), input.end(), input.begin(), ::tolower);
-
-        while (input != "y" && input != "n")
+        while (num_input != 1 && num_input != 2)
         {
-          cout << "#! " << bold_on << "Please type y or n!" << bold_off << endl
-            << "#! Do you wish to " << bold_on << "generate a report" << bold_off << endl
-            << "#! based on these inputs? <y/n>:" << endl
+          if (cin.fail())
+          {
+            cin.clear();
+            cin.ignore();
+          }
+
+          cout << "#! " << bold_on << "Please type 1 or 2!" << bold_off << endl
+            << "#! Please specify whether " << bold_on << "missing values" << bold_off << endl
+            << "#! should be "<< bold_on << "summarized (1)" << bold_off << " or " << bold_on
+            << "ignored (2)" << bold_off << ":" << endl
             << "#~ ";
+            cin >> num_input;
+        }
+      }
+      else
+      {
+        currentInput.missing_option = missing_input;
+      }
+
+      if (!arg_mode)
+      {
+        switch (num_input)
+        {
+          case 1:
+            currentInput.missing_option = 1;
+            missing_description = "Summarize missing values (1)";
+            break;
+          case 2:
+            currentInput.missing_option = 2;
+            missing_description = "Ignore missing values (2)";
+            break;
+          default:
+            currentInput.missing_option = 0;
+            missing_description = "Something went wrong!";
+            break;
+        }
+
+        cout << "#! Please check your inputs:" << endl
+          << "#!" << endl
+          << sep << endl
+          << "#! " << bold_on << "Data" << bold_off << " file: " << split_filename(currentInput.data_file) << endl
+          << "#! "<< bold_on << "Meta" << bold_off << " file: " << split_filename(currentInput.meta_file) << endl
+          << "#! " << bold_on << "Missings"<< bold_off << " : " << missing_description << endl
+          << sep << endl
+          << "#!" << endl
+          << "#! Do you wish to " << bold_on << "generate a report" << bold_off << endl
+          << "#! based on these inputs? <y/n>:" << endl
+          << "#~ ";
           cin >> input;
 
           transform(input.begin(), input.end(), input.begin(), ::tolower);
+
+          while (input != "y" && input != "n")
+          {
+            cout << "#! " << bold_on << "Please type y or n!" << bold_off << endl
+              << "#! Do you wish to " << bold_on << "generate a report" << bold_off << endl
+              << "#! based on these inputs? <y/n>:" << endl
+              << "#~ ";
+            cin >> input;
+
+            transform(input.begin(), input.end(), input.begin(), ::tolower);
+          }
         }
 
-        if (input == "y")
+        if (input == "y" || arg_mode)
         {
           cout << "#! Generating \U0001F529 ..." << endl;
 
