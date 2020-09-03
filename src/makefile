@@ -1,4 +1,4 @@
-SOURCES = main.o boot_info.o call_func.o commands.o files.o formatting.o globals.o initiate.o
+SOURCES = main.o boot_info.o call_func.o commands.o files.o formatting.o globals.o initiate.o integer.o
 
 Datatblr: $(SOURCES)
 	g++ -std=c++17 $(SOURCES) -o Datatblr
@@ -26,6 +26,9 @@ globals.o: globals.cpp
 
 initiate.o: initiate.cpp
 	g++ -std=c++17 -c initiate.cpp
+
+integer.o: integer.cpp
+	g++ -std=c++17 -c integer.cpp
 
 
 clean:
