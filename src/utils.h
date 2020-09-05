@@ -28,6 +28,7 @@ void call_func(const string& input);
 
 // commands.cpp
 void authors();
+void print_current_dir();
 void examples();
 void quit();
 void s_o_d();

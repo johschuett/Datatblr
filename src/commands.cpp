@@ -21,6 +21,12 @@ void authors()
     << sep << endl;
 }
 
+// Command :c
+void print_current_dir()
+{
+  cout << "#! " << current_dir << endl;
+}
+
 // Command :e
 void examples()
 {

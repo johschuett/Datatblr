@@ -8,13 +8,14 @@ func_map commands;
 
 int main(int argc, char* argv[])
 {
-  // Checking for parsed arguments
+  // Arg mode is off by default
   bool args_given = false;
 
   string data_arg;
   string meta_arg;
   string missing_arg_string = "-1";
 
+  // Checking for parsed arguments
   if (argc > 1)
   {
     // Too many/to few arguments provided
@@ -31,12 +32,14 @@ int main(int argc, char* argv[])
       meta_arg = argv[2];
       missing_arg_string = argv[3];
 
+      // Entering arg mode
       args_given = true;
     }
   }
 
   // Fill the commands map with the available commands
   commands.emplace(":a", &authors);
+  commands.emplace(":c", &print_current_dir);
   commands.emplace(":e", &examples);
   commands.emplace(":q", &quit);
   commands.emplace(":s", &s_o_d);
