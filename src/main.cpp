@@ -10,20 +10,20 @@ int main(int argc, char* argv[])
 {
   // Arg mode is off by default
   bool args_given = false;
+  int arg_error = 0;
+  int missing_arg;
 
   string data_arg;
   string meta_arg;
-  string missing_arg_string = "-1";
+  string missing_arg_string;
 
   // Checking for parsed arguments
   if (argc > 1)
   {
-    // Too many/to few arguments provided
+    // Too many/to few arguments given
     if (argc != 4)
     {
-      cout << "#! 3 arguments needed!" << endl
-        << "#! Starting the program in normal mode..." << endl
-        << "#!" << endl;
+      arg_error = 1;
     }
     // 3 arguments provided
     else
@@ -32,8 +32,24 @@ int main(int argc, char* argv[])
       meta_arg = argv[2];
       missing_arg_string = argv[3];
 
-      // Entering arg mode
-      args_given = true;
+      if (!is_integer(missing_arg_string))
+      {
+        arg_error = 2;
+      }
+      else
+      {
+        missing_arg = stoi(missing_arg_string);
+
+        if (missing_arg != 1 && missing_arg != 2)
+        {
+          arg_error = 3;
+        }
+        else
+        {
+          // Entering arg mode
+          args_given = true;
+        }
+      }
     }
   }
 
@@ -123,7 +139,7 @@ int main(int argc, char* argv[])
       << "#!" << endl;
 
     // All dependencies are installed, so show the boot info
-    boot_info(args_given);
+    boot_info(args_given, arg_error);
 
     // Change to working directory
     if (chdir(current_dir.c_str()) != 0)
@@ -134,7 +150,7 @@ int main(int argc, char* argv[])
     }
   }
 
-  // No args given, go into loop
+  // Normal mode, go into loop
   if (!args_given)
   {
     // Main Loop
@@ -158,29 +174,17 @@ int main(int argc, char* argv[])
       }
     }
   }
-  // Args given
+  // Arg mode
   else
   {
-    if (!is_integer(missing_arg_string))
+    switch (missing_arg)
     {
-      cout << missing_arg_string << " is not an integer." << endl;
-    }
-    else
-    {
-      int missing_arg = stoi(missing_arg_string);
-
-      switch (missing_arg)
-      {
-        case 1:
-          initiate(data_arg, meta_arg, missing_arg, args_given);
-          break;
-        case 2:
-          initiate(data_arg, meta_arg, missing_arg, args_given);
-          break;
-        default:
-          cout << "#! Oops, unknown missing option..." << endl;
-          break;
-      }
+      case 1:
+        initiate(data_arg, meta_arg, missing_arg, args_given);
+        break;
+      case 2:
+        initiate(data_arg, meta_arg, missing_arg, args_given);
+        break;
     }
   }
 

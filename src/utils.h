@@ -21,7 +21,7 @@ typedef unordered_map<string, ScriptFunction> func_map;
 extern func_map commands;
 
 // boot_info.cpp
-void boot_info(bool& args_given);
+void boot_info(bool& args_given, int& arg_error);
 
 // call_func.cpp
 void call_func(const string& input);

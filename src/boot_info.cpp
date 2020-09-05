@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include "utils.h"
 
-void boot_info(bool& args_given)
+void boot_info(bool& args_given, int& arg_error)
 {
   // Get working directory and write it into .current_dir file
   current_dir = "NULL";
@@ -52,8 +52,36 @@ void boot_info(bool& args_given)
       << "#! available commands." << endl
       << "#!" << endl
       << "#! Issue " << bold_on << ":q" << bold_off << " to quit the program." << endl
-      << "#!" << endl
-      << "#! Please put in the path of your " << bold_on << "data" << bold_off << " file" << endl
+      << "#!" << endl;
+
+    switch (arg_error)
+    {
+      case 0:
+        // No error
+        break;
+      case 1:
+        // To many / to few arguments were given
+        cout << "#! " << bold_on << "Too many / to few arguments" << bold_off <<" (expected 3)." << endl
+          << "#! Booted into normal mode." << endl
+          << "#!" << endl;
+        break;
+      case 2:
+        // Missing option is not an integer
+        cout << "#! " << bold_on << "Missing option is not a whole number." << bold_off << endl
+          << "#! Booted into normal mode." << endl
+          << "#!" << endl;
+        break;
+      case 3:
+        // Unknown missing option
+        cout << "#! " << bold_on << "Unknown missing option." << bold_off << endl
+          << "#! Booted into normal mode." << endl
+          << "#!" << endl;
+        break;
+      default:
+        break;
+    }
+
+    cout << "#! Please put in the path of your " << bold_on << "data" << bold_off << " file" << endl
       << "#!" << bold_on << " or a command" << bold_off << " (starting with a colon):" << endl;
   }
 }
