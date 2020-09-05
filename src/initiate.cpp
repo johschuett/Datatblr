@@ -187,14 +187,22 @@ void initiate(string& input, string& meta_input, int& missing_input, bool& arg_m
                 << "#!" << endl
                 << "#! You can find your files here:" << endl
                 << "#! " << bold_on << current_dir << "/report.pdf" << bold_off << endl
-                << "#! " << bold_on << current_dir << "/report.tex" << bold_off << endl
-                << "#!" << endl;
+                << "#! " << bold_on << current_dir << "/report.tex" << bold_off << endl;
+
+              if (!arg_mode)
+              {
+                cout << "#!" << endl;
+              }
             }
             else
             {
               cout << "#!" << endl
-                << "#! No report created. Please try again!" << endl
-                << "#!" << endl;
+                << "#! No report created. Please try again!" << endl;
+
+              if (!arg_mode)
+              {
+                cout << "#!" << endl;
+              }
             }
           }
         }
