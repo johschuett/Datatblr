@@ -1,0 +1,8 @@
+AVAILABLE COMMANDS
+------------------
+
+:a  A list of the authors
+:c  The current working directory
+:e  Usage examples
+:q  Quit the program / abort new job
+:w  How to change your working directory
