@@ -1,7 +1,7 @@
 SOURCES = main.o boot_info.o call_func.o commands.o files.o formatting.o globals.o initiate.o integer.o
 
 Datatblr: $(SOURCES)
-	g++ -std=c++17 $(SOURCES) -o Datatblr
+	g++ -std=c++17 $(SOURCES) -o datatblr
 
 main.o: main.cpp
 	g++ -std=c++17 -c main.cpp
