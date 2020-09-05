@@ -185,6 +185,9 @@ int main(int argc, char* argv[])
       case 2:
         initiate(data_arg, meta_arg, missing_arg, args_given);
         break;
+      default:
+        cout << "#! Unexpected behaviour." << endl;
+        break;
     }
   }
 
