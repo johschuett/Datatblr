@@ -46,7 +46,7 @@ setwd("/path/to/working_directory")
 
 You can also add the path of the executable to your PATH environment variable and then run the program using the command `datatblr`.
 
-The user interface is compatible with UNIX systems. If you are running **Windows**, you have to work directly with the R files! (You might want to check out the [lite](https://github.com/johschuett/Datatblr/tree/lite) branch.)
+The user interface is compatible with UNIX systems. If you are running **Windows**, you have to work directly with the R files! (You might want to check out the lite version.)
 
 ### License
 [GNU General Public License v2.0 only](https://github.com/johschuett/Datatblr/blob/master/GPL-2.0)
