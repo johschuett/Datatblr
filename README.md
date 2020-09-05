@@ -33,7 +33,7 @@ sh build.sh
 inside the project folder. After that, you can run the executable by double-clicking on it or by running the command
 
 ```shell
-./Datatblr
+./datatblr
 ```
 
 You can move the executable as you like. Make sure to set your R working directory to `/path/to/Datatblr` **or** to move the `dtblr_core` folder into your own working directory. Your reports will be saved there.
