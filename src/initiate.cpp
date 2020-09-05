@@ -24,7 +24,7 @@ void initiate(string& input, string& meta_input, int& missing_input, bool& arg_m
   {
     currentInput.data_file = input;
 
-    // Normal mode
+    // Normal mode -> Get meta file
     if (!arg_mode)
     {
       cout << "#! Please put in the path of your " << bold_on << "meta" << bold_off << " file" << endl
@@ -48,7 +48,7 @@ void initiate(string& input, string& meta_input, int& missing_input, bool& arg_m
          cin >> input;
        }
     }
-    // Arg mode
+    // Arg mode -> Get meta file
     else
     {
       if (!valid_csv(meta_input))
@@ -60,15 +60,18 @@ void initiate(string& input, string& meta_input, int& missing_input, bool& arg_m
     }
 
     if (!abort) {
+      // Normal mode -> Write meta file to object
       if (!arg_mode)
       {
         currentInput.meta_file = input;
       }
+      // Arg mode -> Write meta file to object
       else
       {
         currentInput.meta_file = meta_input;
       }
 
+      // Normal mode -> Get missing option
       if (!arg_mode)
       {
         cout << "#! Please specify whether " << bold_on << "missing values" << bold_off << endl
@@ -93,11 +96,13 @@ void initiate(string& input, string& meta_input, int& missing_input, bool& arg_m
             cin >> num_input;
         }
       }
+      // Arg mode -> Get missing option
       else
       {
         currentInput.missing_option = missing_input;
       }
 
+      // Normal mode -> Summarize inputs
       if (!arg_mode)
       {
         switch (num_input)
