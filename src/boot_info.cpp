@@ -38,24 +38,19 @@ void boot_info(bool& args_given)
   // Print infotext
   cout << "#!" << bold_on << "         Hej, this is Datatblr " << version << "!" << bold_off << endl
     << "#!" << endl
-    << "#! License: GNU General Public License v2.0 only" << endl;
-
-  if (!args_given)
-  {
-    cout << "#! Issue :a to see the authors of this program" << endl;
-  }
-
-  cout << "#!" << endl
+    << "#! License: GNU General Public License v2.0 only" << endl
+    << "#!" << endl
     << "#!" << " Your R working directory is currently set to" << endl
     << "#!" << endl
     << "#! " << bold_on << current_dir << bold_off << endl
     << "#!" << endl;
 
+  // Normal mode
   if (!args_given)
   {
-    cout << "#! Issue " << bold_on << ":w" << bold_off << " to learn how to change it." << endl
+    cout << "#! " << bold_on << "/extras/COMMANDS" << bold_off << " contains a list of the" << endl
+      << "#! available commands." << endl
       << "#!" << endl
-      << "#! Issue " << bold_on << ":e" << bold_off << " for examples on how to use the program." << endl
       << "#! Issue " << bold_on << ":q" << bold_off << " to quit the program." << endl
       << "#!" << endl
       << "#! Please put in the path of your " << bold_on << "data" << bold_off << " file" << endl
