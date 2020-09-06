@@ -84,7 +84,7 @@ int main(int argc, char* argv[])
   // Checking R packages (dplyr, rio) and install the missing ones
 
   // Check internet connection
-  int connection = system("ping -c 1 cran.us.r-project.org &>/dev/null");
+  int connection = system("ping -c 1 cran.us.r-project.org > /dev/null");
   if (connection != 0)
   {
     // No internet connection, just check for the packages
