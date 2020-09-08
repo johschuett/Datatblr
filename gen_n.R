@@ -15,7 +15,7 @@ for (.el in type_n) {
     return(numbers)
   }
 
-  numbers <- pkgcond::suppress_warnings(get_numbers(), "NAs introduced by coercion")
+  numbers <- get_numbers()
 
   # Calculate the numerical values for the table
   mean_value <- format(round(mean(numbers), 2), nsmall = 2)
