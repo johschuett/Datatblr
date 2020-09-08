@@ -4,6 +4,8 @@
 
 preamble <- paste("\\documentclass[10pt, twoside]{article}
 
+\\usepackage[T1]{fontenc}
+\\usepackage[utf8]{inputenc}
 \\usepackage[ngerman]{babel}
 \\usepackage{amssymb}
 \\usepackage{array}
