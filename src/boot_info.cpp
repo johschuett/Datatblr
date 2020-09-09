@@ -38,7 +38,9 @@ void boot_info(bool& args_given, int& arg_error)
   // Print infotext
   cout << "#!" << bold_on << "         Hej, this is Datatblr " << version << "!" << bold_off << endl
     << "#!" << endl
-    << "#! License: GNU General Public License v2.0 only" << endl
+    << "#! Copyright (c) 2020" << endl
+    << "#! Johannes Schütt, Claudia Saalbach" << endl
+    << "#! GNU General Public License v2.0 only" << endl
     << "#!" << endl
     << "#!" << " Your R working directory is currently set to" << endl
     << "#!" << endl
@@ -48,10 +50,12 @@ void boot_info(bool& args_given, int& arg_error)
   // Normal mode
   if (!args_given)
   {
-    cout << "#! " << bold_on << "/extras/COMMANDS" << bold_off << " contains a list of the" << endl
-      << "#! available commands." << endl
+    cout << "#! For help you can use these commands:" << endl
       << "#!" << endl
-      << "#! Issue " << bold_on << ":q" << bold_off << " to quit the program." << endl
+      << "#! :c\tYour current working directory" << endl
+      << "#! :w\tHow to change your working directory"<< endl
+      << "#! :e\tUsage example" << endl
+      << "#! :q\tQuit the program / abort new job" << endl
       << "#!" << endl;
 
     switch (arg_error)
@@ -81,7 +85,7 @@ void boot_info(bool& args_given, int& arg_error)
         break;
     }
 
-    cout << "#! Please put in the path of your " << bold_on << "data" << bold_off << " file" << endl
+    cout << "#! Please put in the path to your " << bold_on << "data" << bold_off << " file" << endl
       << "#!" << bold_on << " or a command" << bold_off << " (starting with a colon):" << endl;
   }
 }

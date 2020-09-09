@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
   // Fill the commands map with the available commands
   commands.emplace(":a", &authors);
   commands.emplace(":c", &print_current_dir);
-  commands.emplace(":e", &examples);
+  commands.emplace(":e", &example);
   commands.emplace(":q", &quit);
   commands.emplace(":s", &s_o_d);
   commands.emplace(":t", &table);

@@ -4,11 +4,11 @@
 // Command :a
 void authors()
 {
-  cout << "#! Credits:" << endl
+  cout << "#! Authors:" << endl
     << sep << endl
     << "#! Datatblr " << version << endl
     << "#! was written by Johannes Schütt" << endl
-    << "#! Co-author: Claudia Saalbach" << endl
+    << "#! and Claudia Saalbach" << endl
     << "#!" << endl
     << "#! Datatblr is part of the survey.codes project" << endl
     << "#! Visit https://survey.codes/datatblr" << endl
@@ -28,14 +28,33 @@ void print_current_dir()
 }
 
 // Command :e
-void examples()
+void example()
 {
-  cout << "#! Examples:" << endl
+  cout << "#! Example:" << endl
     << sep << endl
-    << "#! /Users/<your-user-name>/Desktop/data.csv" << endl
-    << "#! test1.csv" << endl
-    << "#! data/my_data.csv" << endl
-    << "#! ../mystuff/somefile.csv" << endl
+    << "#! First, enter the path to your data file." << endl
+    << "#!" << endl
+    << "#! For example:" << endl
+    << "#!" << endl
+    << "#! data.csv" << endl
+    << "#! alldata/thisdata.csv" << endl
+    << "#! or" << endl
+    << "#! ../my_data.csv" << endl
+    << "#!" << endl
+    << "#! Second, enter the path to your questionnaire" << endl
+    << "#! meta file." << endl
+    << "#!" << endl
+    << "#! For example:" << endl
+    << "#!" << endl
+    << "#! meta.csv" << endl
+    << "#! questionnaire/thismeta.csv" << endl
+    << "#! or" << endl
+    << "#! ../mymeta.csv" << endl
+    << "#!" << endl
+    << "#! Third, choose a missing option by typing 1 or 2:" << endl
+    << "#!" << endl
+    << "#! 1 (Summarize missing values)" << endl
+    << "#! 2 (Ignore missing values)" << endl
     << sep << endl;
 }
 

@@ -27,7 +27,7 @@ void initiate(string& input, string& meta_input, int& missing_input, bool& arg_m
     // Normal mode -> Get meta file
     if (!arg_mode)
     {
-      cout << "#! Please put in the path of your " << bold_on << "meta" << bold_off << " file" << endl
+      cout << "#! Please put in the path to your " << bold_on << "meta" << bold_off << " file" << endl
         << "#! (or :q to abort):" << endl
         << "#~ ";
       cin >> input;
@@ -42,7 +42,7 @@ void initiate(string& input, string& meta_input, int& missing_input, bool& arg_m
           cout << "#! Your " << bold_on << "meta" << bold_off << " file either isn't a csv file or doesn't" << endl
             << "#! exist at all (or possibly both)." << endl
             << "#!" << endl
-            << "#! Please put in the path of your " << bold_on << "meta" << bold_off << " file" << endl
+            << "#! Please put in the path to your " << bold_on << "meta" << bold_off << " file" << endl
             << "#! (or :q to abort):" << endl
             << "#~ ";
          cin >> input;
