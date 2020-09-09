@@ -68,7 +68,7 @@ int main(int argc, char* argv[])
 
   // Checking dependencies
   cout << "#! Checking your R installation..." << endl;
-  int r_check = system("R --version > /dev/null");
+  int r_check = system("R --version > /dev/null 2>&1");
   if (r_check != 0)
   {
     quit_flag = true;
@@ -84,7 +84,7 @@ int main(int argc, char* argv[])
   // Checking R packages (dplyr, rio) and install the missing ones
 
   // Check internet connection
-  int connection = system("ping -c 1 cran.us.r-project.org > /dev/null");
+  int connection = system("ping -c 1 cran.us.r-project.org > /dev/null 2>&1");
   if (connection != 0)
   {
     // No internet connection, just check for the packages
@@ -124,7 +124,7 @@ int main(int argc, char* argv[])
   }
 
   cout << "#! Checking your LaTeX installation..." << endl;
-  int latex_check = system("latex --version > /dev/null");
+  int latex_check = system("latex --version > /dev/null 2>&1");
   if (latex_check != 0)
   {
     quit_flag = true;
