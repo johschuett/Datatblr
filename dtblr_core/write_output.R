@@ -1,4 +1,4 @@
-# print_output.R
+# write_output.R
 # This script writes the LaTeX code chunks for every generated table in the
 # original order of the meta.CSV file in a .tex file
 
