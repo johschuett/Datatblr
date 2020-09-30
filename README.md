@@ -77,7 +77,7 @@ Alternatively, you can exchange the 1 with a 2 to generate a table volume *witho
 ./datatblr data.csv meta.csv 2
 ```
 
-### Output
+### Additional information
 You can edit the preamble for the LaTeX files in `dtblr_core/write_output.R`.
 
 ### License
