@@ -49,8 +49,6 @@ vignettes/*.pdf
 
 .current_dir
 job.csv
-meta.csv
-data.csv
 Datatblr
 Datatblr.o
 marx*
