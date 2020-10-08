@@ -2,12 +2,12 @@
 # This script imports the data from the CSV files and sorts them
 
 # Import data from file
-data <- import("csv/data.csv")
+data <- rio::import("csv/data.csv")
 # Convert missing entries to NAs
 data[data == ""] <- NA
 # Import metadata and options from files
-meta <- import("csv/meta.csv")
-options <- import("csv/options.csv")
+meta <- rio::import("csv/meta.csv")
+options <- rio::import("csv/options.csv")
 
 # Get survey title
 line_of_title <- which(meta$name == "surveyls_title")

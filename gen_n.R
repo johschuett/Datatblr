@@ -29,19 +29,19 @@ for (.el in type_n) {
   table <- paste("
 \\setlength{\\tabcolsep}{15pt}
 \\renewcommand{\\arraystretch}{1.3}
-\\begin{table}[h]
+\\begin{table}[H]
 \\caption{\\label{tab:", table_title, "}
 \\emph{", table_label, "} (", table_title, ")}
 \\begin{tabularx}{\\linewidth}{@{} >{\\raggedleft\\arraybackslash}p{3.5cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{2.5cm}@{}}
 \\addlinespace[.5cm]
 \\toprule
-Arith. Mittel $\\varnothing$ & Median & Modus & Min & Max & St.-abweichung \\\\
+Mean & Median & Mode & Min & Max & St. dev. \\\\
 \\midrule\n",
 mean_value, " & ", median_value, " & ", mode_value, " & ", min_value, " & ", max_value, " & ", sd_value, "\\\\
 \\bottomrule
 \\end{tabularx}
 \\end{table}\n
-\\vspace{2cm}\n",
+\\vspace{2cm}",
 sep = "")
 
   .com <- paste("output[[", length(output) + 1, "]] <- table", sep = "")

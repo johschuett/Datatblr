@@ -48,12 +48,12 @@ pack,
     }
     # ... or ignore missings
     else if (missings == 2) {
-      .com <- paste("absNa <- as.numeric(count(dplyr::filter(data, (is.na(", .el, ") | ", .el, " %!in% answer))))", sep = "")
+      .com <- paste("absolute_na <- as.numeric(count(dplyr::filter(data, (is.na(", .el, ") | ", .el, " %!in% answer))))", sep = "")
       # For Stata users: You can use the following command to filter missings
       # by searching for values starting with a full stop:
       # .com <- paste("as.numeric(count(dplyr::filter(data, (is.na(", .el ,") | substr(", .el, ", 1, 1) == '.'))))", sep = "")
       eval(parse(text = .com))
-      total <- count(data) - absNa
+      total <- count(data) - absolute_na
     }
 
     # Calculate the numerical values for the table
@@ -94,7 +94,7 @@ pack,
     pack <- paste(
 pack,
 "\\midrule
- & Gesamt & ", sum(answer_absolute), " & ", relative_total, " & \\\\
+ & Total & ", sum(answer_absolute), " & ", relative_total, " & \\\\
 \\addlinespace[.5cm]
 ", sep = "")
 
@@ -106,11 +106,11 @@ pack,
 \\newpage
 \\setlength{\\tabcolsep}{10pt}
 \\renewcommand{\\arraystretch}{1.3}
-\\begin{longtable}[h]{ p{6.1cm} p{3.5cm} >{\\raggedleft\\arraybackslash}p{2.5cm} .{2} .{2} }
+\\begin{longtable}[H]{ p{6.1cm} p{3.5cm} >{\\raggedleft\\arraybackslash}p{2.5cm} .{2} .{2} }
 \\caption[", table_title, "]{\\emph{", table_label, "}} \\\\
 \\addlinespace[.5cm]
 \\toprule\n",
-table_title, " & & Absolut & \\mc{Prozent} & \\mc{Kumuliert (\\%)} \\\\
+table_title, " & & Obs. & \\mc{Perc.} & \\mc{Cum.} \\\\
 \\midrule\n",
 pack,
 "\\addlinespace[-.4cm]
@@ -127,6 +127,8 @@ sep = "")
 }
 
 # Free memory
-rm(.a, .b, .com, .el, .row, .y, absNa, answer, answer_absolute, answer_relative,
+if (exists("absolute_na")) rm(absolute_na)
+
+rm(.a, .b, .com, .el, .row, .y, answer, answer_absolute, answer_relative,
   answer_cum_absolute, answer_cum_relative, answer_label, pack, relative_total,
   subquestion, subquestion_label, table_label, table_title, total)

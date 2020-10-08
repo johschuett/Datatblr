@@ -53,5 +53,8 @@ meta.csv
 data.csv
 Datatblr
 Datatblr.o
-marx_data.csv
-marx_de.csv
+marx*
+kksoep*
+
+# Src folder
+/src

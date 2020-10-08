@@ -6,11 +6,11 @@ preamble <- paste("\\documentclass[10pt, twoside]{article}
 
 \\usepackage[T1]{fontenc}
 \\usepackage[utf8]{inputenc}
-\\usepackage[ngerman]{babel}
-\\usepackage{amssymb}
+\\usepackage[english]{babel}
 \\usepackage{array}
 \\usepackage{booktabs}
 \\usepackage{dcolumn}
+\\usepackage{float}
 \\usepackage[left = .5in, right = .5in, top = 1in, bottom = 1in]{geometry}
 \\usepackage{ltxtable}
 \\usepackage{multirow}
@@ -31,11 +31,12 @@ write(preamble, file = "report.tex", append = FALSE)
 for (.el in var_name) {
   variable_positions <- dplyr::filter(order, (order[, 1] == .el))
   variable_positions <- as.numeric(variable_positions[1, 2])
-  cat(output[[variable_positions]])
   write(output[[variable_positions]], file = "report.tex", append = TRUE)
 }
 
 write("\\end{document}", file = "report.tex", append = TRUE)
+
+cat("\n#! Building .pdf file \U0001F9F1 ...\n\n")
 
 system("pdflatex report.tex")
 system("rm *.aux *log")
