@@ -36,7 +36,7 @@ for (.el in var_name) {
 
 write("\\end{document}", file = "report.tex", append = TRUE)
 
-cat("\n#! Building .pdf file \U0001F9F1 ...\n\n")
+cat("\n#! Building PDF file \U0001F9F1 ...\n\n")
 
 system("pdflatex report.tex")
 system("rm *.aux *log")
