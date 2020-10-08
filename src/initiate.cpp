@@ -150,7 +150,7 @@ void initiate(string& input, string& meta_input, int& missing_input, bool& arg_m
 
         if (input == "y" || arg_mode)
         {
-          cout << "#! Generating \U0001F529 ..." << endl;
+          cout << "#! Launching R \U0001F6EB ..." << endl;
 
           // Write a csv file containing the collected information for the R script
           string job_path = current_dir + "/dtblr_core/job.csv";
@@ -183,7 +183,7 @@ void initiate(string& input, string& meta_input, int& missing_input, bool& arg_m
             if (file_exists("report.pdf") && file_exists("report.tex"))
             {
               cout << "#!" << endl
-                << "#! Your report has been created! \U0001F389" << endl
+                << "#! Your report has been created! \U0001F371" << endl
                 << "#!" << endl
                 << "#! You can find your files here:" << endl
                 << "#! " << bold_on << current_dir << "/report.pdf" << bold_off << endl

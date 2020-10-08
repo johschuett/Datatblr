@@ -78,23 +78,23 @@ value_label[.i], " & ",  value_absolute[.i], " & ", value_relative[.i], " & ", v
 
   pack <- paste(
 pack,
-"\\midrule Gesamt & ", sum(value_absolute), " & ", relative_total, " & \\\\",
+"\\midrule Total & ", sum(value_absolute), " & ", relative_total, " & \\\\",
 sep = "")
 
   # Assemble table
   table <- paste("
 \\setlength{\\tabcolsep}{10pt}
 \\renewcommand{\\arraystretch}{1.3}
-\\begin{longtable}[h]{ p{8.3cm} >{\\raggedleft\\arraybackslash}p{4.5cm} .{2} .{2} }
+\\begin{longtable}[H]{ p{8.3cm} >{\\raggedleft\\arraybackslash}p{4.5cm} .{2} .{2} }
 \\caption[", table_title, "]{\\emph{", table_label, "}} \\\\
 \\addlinespace[.5cm]
 \\toprule\n",
-table_title, " & Absolut & \\mc{Prozent} & \\mc{Kumuliert (\\%)} \\\\
+table_title, " & Obs. & \\mc{Perc.} & \\mc{Cum.} \\\\
 \\midrule\n",
 pack,
 "\n\\bottomrule
 \\end{longtable}\n
-\\vspace{2cm}\n",
+\\vspace{2cm}",
 sep = "")
 
   .com <- paste("output[[", length(output) + 1, "]] <- table", sep = "")

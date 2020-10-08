@@ -6,11 +6,11 @@ preamble <- paste("\\documentclass[10pt, twoside]{article}
 
 \\usepackage[T1]{fontenc}
 \\usepackage[utf8]{inputenc}
-\\usepackage[ngerman]{babel}
-\\usepackage{amssymb}
+\\usepackage[english]{babel}
 \\usepackage{array}
 \\usepackage{booktabs}
 \\usepackage{dcolumn}
+\\usepackage{float}
 \\usepackage[left = .5in, right = .5in, top = 1in, bottom = 1in]{geometry}
 \\usepackage{ltxtable}
 \\usepackage{multirow}
@@ -35,6 +35,8 @@ for (.el in var_name) {
 }
 
 write("\\end{document}", file = "report.tex", append = TRUE)
+
+cat("\n#! Building .pdf file \U0001F9F1 ...\n\n")
 
 system("pdflatex report.tex")
 system("rm *.aux *log")

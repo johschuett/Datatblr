@@ -59,6 +59,8 @@ meta.csv
 job.csv
 marx_data.csv
 marx_de.csv
+marx_en.csv
+kksoep*
 
 # Ignore debug folder
 *.dSYM

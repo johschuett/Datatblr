@@ -94,7 +94,7 @@ pack,
     pack <- paste(
 pack,
 "\\midrule
- & Gesamt & ", sum(answer_absolute), " & ", relative_total, " & \\\\
+ & Total & ", sum(answer_absolute), " & ", relative_total, " & \\\\
 \\addlinespace[.5cm]
 ", sep = "")
 
@@ -106,11 +106,11 @@ pack,
 \\newpage
 \\setlength{\\tabcolsep}{10pt}
 \\renewcommand{\\arraystretch}{1.3}
-\\begin{longtable}[h]{ p{6.1cm} p{3.5cm} >{\\raggedleft\\arraybackslash}p{2.5cm} .{2} .{2} }
+\\begin{longtable}[H]{ p{6.1cm} p{3.5cm} >{\\raggedleft\\arraybackslash}p{2.5cm} .{2} .{2} }
 \\caption[", table_title, "]{\\emph{", table_label, "}} \\\\
 \\addlinespace[.5cm]
 \\toprule\n",
-table_title, " & & Absolut & \\mc{Prozent} & \\mc{Kumuliert (\\%)} \\\\
+table_title, " & & Obs. & \\mc{Perc.} & \\mc{Cum.} \\\\
 \\midrule\n",
 pack,
 "\\addlinespace[-.4cm]

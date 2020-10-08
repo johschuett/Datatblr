@@ -10,11 +10,11 @@ for (.row in seq_len(nrow(job))) {
 }
 
 # Import data from file
-data <- import(data_file)
+data <- rio::import(data_file)
 # Convert missing entries to NAs
 data[data == ""] <- NA
 # Import metadata from file
-meta <- import(meta_file)
+meta <- rio::import(meta_file)
 
 # Get survey title
 line_of_title <- which(meta$name == "surveyls_title")
