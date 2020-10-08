@@ -1,6 +1,6 @@
 # write_output.R
 # This script writes the LaTeX code chunks for every generated table in the
-# original order of the meta.CSV file in a .tex file
+# original order of the meta.CSV file in a TEX file
 
 preamble <- paste("\\documentclass[10pt, twoside]{article}
 
@@ -36,7 +36,7 @@ for (.el in var_name) {
 
 write("\\end{document}", file = "report.tex", append = TRUE)
 
-cat("\n#! Building .pdf file \U0001F9F1 ...\n\n")
+cat("\n#! Building PDF file \U0001F9F1 ...\n\n")
 
 system("pdflatex report.tex")
 system("rm *.aux *log")
