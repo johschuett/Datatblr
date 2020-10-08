@@ -27,7 +27,7 @@ The user interface is compatible with **UNIX** systems. If you are running **Win
 
 #### Build
 
-To build the Datatblr user interface, switch to the project folder, and run:
+To build the Datatblr user interface, switch to the root directory of Datatblr, and run:
 
 ```shell
 sh build.sh
@@ -42,7 +42,7 @@ The program is operated via a console (Terminal), either by double-clicking on t
 ```
 #### Set R working directory
 
-You can move the executable as you like. Make sure to set your R working directory to `/path/to/datatblr` **or** move the `dtblr_core` folder into your working directory. There, Datatblr saves the table volume (TEX and PDF).
+You can move the executable as you like. Make sure to set your R working directory to `/path/to/datatblr` **or** move the `dtblr_core` folder into your R working directory. There, Datatblr saves the table volume (TEX and PDF).
 
 You can set your working directory in your `.Rprofile` with this command:
 

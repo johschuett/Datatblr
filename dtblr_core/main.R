@@ -17,7 +17,7 @@ library(rio, warn.conflicts = FALSE)    # Version 0.5.16
 # Define %!in% operator
 '%!in%' <- function(x, y)!('%in%'(x, y))
 
-cat("\n#! Generating .tex file \U0001F529 ...\n\n")
+cat("\n#! Generating TEX file \U0001F529 ...\n\n")
 
 # Scripts
 source("dtblr_core/import.R")
