@@ -97,8 +97,8 @@ for (.el in var_type) {
 
 # Get options
 for (.row in seq_len(nrow(options))) {
-  if (options[.row, 1] == "missings")
-    assign(options[.row, 1], options[.row, 2])
+  if (tolower(options[.row, 1]) == "missings")
+    assign(tolower(options[.row, 1]), options[.row, 2])
 }
 
 # Convert missing value to integer
