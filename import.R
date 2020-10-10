@@ -97,8 +97,12 @@ for (.el in var_type) {
 
 # Get options
 for (.row in seq_len(nrow(options))) {
-  assign(options[.row, 1], options[.row, 2])
+  if (options[.row, 1] == "missings")
+    assign(options[.row, 1], options[.row, 2])
 }
+
+# Convert missing value to integer
+missings <- as.integer(missings)
 
 # Free memory
 rm(.a, .b, .com, .el, .i, .list_length, .list_syntax, .row, class, current_type,
