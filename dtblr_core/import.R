@@ -15,6 +15,8 @@ data <- rio::import(data_file)
 data[data == ""] <- NA
 # Import metadata from file
 meta <- rio::import(meta_file)
+# Convert missing value to integer
+missings <- as.integer(missings)
 
 # Get survey title
 line_of_title <- which(meta$name == "surveyls_title")
