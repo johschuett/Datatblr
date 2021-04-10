@@ -51,7 +51,7 @@ void initiate(string& input, string& meta_input, int& missing_input, bool& arg_m
     // Arg mode -> Get meta file
     else
     {
-      if (!valid_data(input))
+      if (!valid_csv(input))
       {
         cout << "#! Your " << bold_on << "meta" << bold_off << " file either isn't a CSV file or doesn't" << endl
           << "#! exist at all (or possibly both)." << endl;
