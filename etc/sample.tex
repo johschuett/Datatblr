@@ -1,0 +1,897 @@
+\documentclass[10pt, twoside]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{float}
+\usepackage[left = .5in, right = .5in, top = 1in, bottom = 1in]{geometry}
+\usepackage{ltxtable}
+\usepackage{multirow}
+\usepackage{tabularx}
+
+\newcommand{\mc}[1]{\multicolumn{1}{c}{#1}}
+\newcolumntype{.}[1]{D{.}{.}{#1}}
+
+\begin{document}
+
+\title{SOEP 2009 (Kohler/Kreuter)}
+\date{}
+
+\maketitle
+
+\setlength{\tabcolsep}{15pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[H]
+\caption{\label{tab:persnr}
+\emph{Never changing person ID} (persnr)}
+\begin{tabularx}{\linewidth}{@{} >{\raggedleft\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{2.5cm}@{}}
+\addlinespace[.5cm]
+\toprule
+Mean & Median & Mode & Min & Max & Std. D. \\
+\midrule
+4692186.47 & 4333402.00 & 8501.00 & 8501.00 & 11126401.00 & 3096840.51\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{15pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[H]
+\caption{\label{tab:hhnr2009}
+\emph{Current household number} (hhnr2009)}
+\begin{tabularx}{\linewidth}{@{} >{\raggedleft\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{2.5cm}@{}}
+\addlinespace[.5cm]
+\toprule
+Mean & Median & Mode & Min & Max & Std. D. \\
+\midrule
+79260.42 & 76252.00 & 62882.00 & 85.00 & 167012.00 & 48474.20\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[state]{\emph{State of Residence}} \\
+\addlinespace[.5cm]
+\toprule
+state & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Berlin & 208 & 3.84 & 3.84 \\
+Schleswig-Hols. & 166 & 3.07 & 6.91 \\
+Hamburg/Bremen & 101 & 1.87 & 8.78 \\
+Lower Saxony & 412 & 7.61 & 16.39 \\
+N-Rhein-Westfa. & 1145 & 21.16 & 37.55 \\
+Hessen & 355 & 6.56 & 44.11 \\
+R-Pfalz, Saarl. & 321 & 5.93 & 50.05 \\
+Baden-Wuerttemb. & 617 & 11.40 & 61.45 \\
+Bavaria & 743 & 13.73 & 75.18 \\
+Mecklenburg-V. & 133 & 2.46 & 77.64 \\
+Brandenburg & 266 & 4.92 & 82.55 \\
+Saxony-Anhalt & 245 & 4.53 & 87.08 \\
+Thueringen & 252 & 4.66 & 91.74 \\
+Saxony & 447 & 8.26 & 100.00 \\
+\midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{15pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[H]
+\caption{\label{tab:ybirth}
+\emph{Year of birth} (ybirth)}
+\begin{tabularx}{\linewidth}{@{} >{\raggedleft\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{2.5cm}@{}}
+\addlinespace[.5cm]
+\toprule
+Mean & Median & Mode & Min & Max & Std. D. \\
+\midrule
+1959.49 & 1960.00 & 1964.00 & 1909.00 & 1992.00 & 18.13\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[sex]{\emph{Gender}} \\
+\addlinespace[.5cm]
+\toprule
+sex & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Male & 2585 & 47.77 & 47.77 \\
+Female & 2826 & 52.23 & 100.00 \\
+\midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[mar]{\emph{Marital Status of Individual}} \\
+\addlinespace[.5cm]
+\toprule
+mar & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Married & 3080 & 56.92 & 56.92 \\
+Single & 1394 & 25.76 & 82.68 \\
+Widowed & 400 & 7.39 & 90.08 \\
+Divorced & 449 & 8.30 & 98.37 \\
+Seperated & 87 & 1.61 & 99.98 \\
+Missings & 1 & 0.02 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[edu]{\emph{Education}} \\
+\addlinespace[.5cm]
+\toprule
+edu & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Elementary & 1836 & 33.93 & 33.93 \\
+Intermediate & 1571 & 29.03 & 62.96 \\
+``Fachhochschulreife'' & 266 & 4.92 & 67.88 \\
+Maturity qualification & 977 & 18.06 & 85.94 \\
+Other & 533 & 9.85 & 95.79 \\
+Missings & 228 & 4.21 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{15pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[H]
+\caption{\label{tab:yedu}
+\emph{Number of Years of Education} (yedu)}
+\begin{tabularx}{\linewidth}{@{} >{\raggedleft\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{2.5cm}@{}}
+\addlinespace[.5cm]
+\toprule
+Mean & Median & Mode & Min & Max & Std. D. \\
+\midrule
+11.80 & 11.00 & 10.00 & 8.70 & 18.00 & 2.68\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[voc]{\emph{Vocational training/university}} \\
+\addlinespace[.5cm]
+\toprule
+voc & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Vocational training & 2123 & 39.23 & 39.23 \\
+Vocational training at college & 515 & 9.52 & 48.75 \\
+Specified collage/Civil servant training & 394 & 7.28 & 56.03 \\
+Other vocational training & 99 & 1.83 & 57.86 \\
+Professional collage & 460 & 8.50 & 66.36 \\
+University degree & 510 & 9.43 & 75.79 \\
+Missings & 1310 & 24.21 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[emp]{\emph{Status of Employment}} \\
+\addlinespace[.5cm]
+\toprule
+emp & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+full time & 2041 & 37.72 & 37.72 \\
+part time & 599 & 11.07 & 48.79 \\
+irregular & 288 & 5.32 & 54.11 \\
+not employed & 2328 & 43.02 & 97.14 \\
+Missings & 155 & 2.86 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[egp]{\emph{Social Class (EGP)}} \\
+\addlinespace[.5cm]
+\toprule
+egp & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Service class 1 & 354 & 6.54 & 6.54 \\
+Service class 2 & 739 & 13.66 & 20.20 \\
+Higher routine non-manuals & 296 & 5.47 & 25.67 \\
+Lower routine non-manuals & 373 & 6.89 & 32.56 \\
+Self-employed & 213 & 3.94 & 36.50 \\
+Skilled manual workers & 486 & 8.98 & 45.48 \\
+Semi- and unskilled manual workers & 627 & 11.59 & 57.07 \\
+unemployed & 312 & 5.77 & 62.83 \\
+Retired & 1389 & 25.67 & 88.50 \\
+Missings & 622 & 11.50 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{15pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[H]
+\caption{\label{tab:income}
+\emph{Individual Labor Earnings} (income)}
+\begin{tabularx}{\linewidth}{@{} >{\raggedleft\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{2.5cm}@{}}
+\addlinespace[.5cm]
+\toprule
+Mean & Median & Mode & Min & Max & Std. D. \\
+\midrule
+20540.60 & 12424.00 & 0.00 & 0.00 & 897756.00 & 37422.49\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{15pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[H]
+\caption{\label{tab:hhinc}
+\emph{HH Post-Government Income} (hhinc)}
+\begin{tabularx}{\linewidth}{@{} >{\raggedleft\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{2.5cm}@{}}
+\addlinespace[.5cm]
+\toprule
+Mean & Median & Mode & Min & Max & Std. D. \\
+\midrule
+37149.97 & 32461.00 & 42668.00 & 583.00 & 507369.00 & 26727.97\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[hhsize]{\emph{Number of Persons in HH}} \\
+\addlinespace[.5cm]
+\toprule
+hhsize & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+1 & 908 & 16.78 & 16.78 \\
+2 & 2023 & 37.39 & 54.17 \\
+3 & 1139 & 21.05 & 75.22 \\
+4 & 952 & 17.59 & 92.81 \\
+5 & 389 & 7.19 & 100.00 \\
+\midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[hhsize0to14]{\emph{Number of HH members age 0-14}} \\
+\addlinespace[.5cm]
+\toprule
+hhsize0to14 & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+0 & 4188 & 77.40 & 77.40 \\
+1 & 702 & 12.97 & 90.37 \\
+2 & 415 & 7.67 & 98.04 \\
+3 & 106 & 1.96 & 100.00 \\
+\midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[rel2head]{\emph{Relationship to HH head}} \\
+\addlinespace[.5cm]
+\toprule
+rel2head & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Head & 3045 & 56.27 & 56.27 \\
+Partner & 1676 & 30.97 & 87.25 \\
+Child & 646 & 11.94 & 99.19 \\
+Relative & 20 & 0.37 & 99.56 \\
+Nonrelative & 24 & 0.44 & 100.00 \\
+\midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{15pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[H]
+\caption{\label{tab:ymove}
+\emph{Year moved into dwelling} (ymove)}
+\begin{tabularx}{\linewidth}{@{} >{\raggedleft\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{2.5cm}@{}}
+\addlinespace[.5cm]
+\toprule
+Mean & Median & Mode & Min & Max & Std. D. \\
+\midrule
+1992.46 & 1997.00 & 2007.00 & 1909.00 & 2009.00 & 15.46\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[ybuild]{\emph{Year house was build}} \\
+\addlinespace[.5cm]
+\toprule
+ybuild & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+< 1918 & 770 & 14.23 & 14.23 \\
+1918--1948 & 788 & 14.56 & 28.79 \\
+1949--1971 & 1417 & 26.19 & 54.98 \\
+1972--1980 & 733 & 13.55 & 68.53 \\
+1981--1990 & 559 & 10.33 & 78.86 \\
+1991--2000 & 638 & 11.79 & 90.65 \\
+2001 or later & 308 & 5.69 & 96.34 \\
+Missings & 198 & 3.66 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[condit]{\emph{Condition of house}} \\
+\addlinespace[.5cm]
+\toprule
+condit & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+In good condition & 3808 & 70.38 & 70.38 \\
+Partial renovation & 1470 & 27.17 & 97.54 \\
+Major renovation & 113 & 2.09 & 99.63 \\
+Ready for demolition & 10 & 0.18 & 99.82 \\
+Missings & 10 & 0.18 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\newpage
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{6.1cm} p{3.5cm} >{\raggedleft\arraybackslash}p{2.5cm} .{2} .{2} }
+\caption[sat]{\emph{Satisfaction}} \\
+\addlinespace[.5cm]
+\toprule
+sat & & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+dsat & & & \\
+Satisfaction with dwelling & Completely dissatisfied & 13 & 0.24 & 0.24 \\
+ & 1 & 19 & 0.35 & 0.59 \\
+ & 2 & 52 & 0.96 & 1.55 \\
+ & 3 & 86 & 1.59 & 3.14 \\
+ & 4 & 116 & 2.14 & 5.29 \\
+ & Intermediate & 329 & 6.08 & 11.37 \\
+ & 6 & 353 & 6.52 & 17.89 \\
+ & 7 & 784 & 14.49 & 32.38 \\
+ & 8 & 1529 & 28.26 & 60.64 \\
+ & 9 & 1102 & 20.37 & 81.00 \\
+ & Completely satisfied & 933 & 17.24 & 98.24 \\
+ & Missings & 95 & 1.76 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+hsat & & & \\
+Satisfaction with Health & Completely dissatisfied & 57 & 1.05 & 1.05 \\
+ & 1 & 72 & 1.33 & 2.38 \\
+ & 2 & 169 & 3.12 & 5.51 \\
+ & 3 & 337 & 6.23 & 11.74 \\
+ & 4 & 381 & 7.04 & 18.78 \\
+ & Intermediate & 747 & 13.81 & 32.58 \\
+ & 6 & 577 & 10.66 & 43.25 \\
+ & 7 & 959 & 17.72 & 60.97 \\
+ & 8 & 1187 & 21.94 & 82.91 \\
+ & 9 & 553 & 10.22 & 93.13 \\
+ & Completely satisfied & 295 & 5.45 & 98.58 \\
+ & Missings & 77 & 1.42 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+lsat & & & \\
+Overall life satisfaction & Completely dissatisfied & 13 & 0.24 & 0.24 \\
+ & 1 & 27 & 0.50 & 0.74 \\
+ & 2 & 68 & 1.26 & 2.00 \\
+ & 3 & 167 & 3.09 & 5.08 \\
+ & 4 & 249 & 4.60 & 9.68 \\
+ & Intermediate & 723 & 13.36 & 23.05 \\
+ & 6 & 662 & 12.23 & 35.28 \\
+ & 7 & 1202 & 22.21 & 57.49 \\
+ & 8 & 1533 & 28.33 & 85.83 \\
+ & 9 & 467 & 8.63 & 94.46 \\
+ & Completely satisfied & 212 & 3.92 & 98.37 \\
+ & Missings & 88 & 1.63 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+\addlinespace[-.4cm]
+\bottomrule
+\end{longtable}
+\newpage
+
+\setlength{\tabcolsep}{15pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[H]
+\caption{\label{tab:size}
+\emph{Size of housing in sq. ft.} (size)}
+\begin{tabularx}{\linewidth}{@{} >{\raggedleft\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{2.5cm}@{}}
+\addlinespace[.5cm]
+\toprule
+Mean & Median & Mode & Min & Max & Std. D. \\
+\midrule
+1107.33 & 1054.00 & 1293.00 & 101.00 & 4845.00 & 460.14\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[seval]{\emph{Adequacy of living space in housing unit}} \\
+\addlinespace[.5cm]
+\toprule
+seval & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Much too small & 78 & 1.44 & 1.44 \\
+A bit too small & 762 & 14.08 & 15.52 \\
+Just right & 3868 & 71.48 & 87.01 \\
+A bit too large & 593 & 10.96 & 97.97 \\
+Much too large & 105 & 1.94 & 99.91 \\
+Missings & 5 & 0.09 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[rooms]{\emph{Number of rooms larger than 65 sq. ft.}} \\
+\addlinespace[.5cm]
+\toprule
+rooms & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+1 & 102 & 1.89 & 1.89 \\
+2 & 635 & 11.74 & 13.62 \\
+3 & 1463 & 27.04 & 40.66 \\
+4 & 1202 & 22.21 & 62.87 \\
+5 & 948 & 17.52 & 80.39 \\
+6 & 567 & 10.48 & 90.87 \\
+7 & 281 & 5.19 & 96.06 \\
+8 & 122 & 2.25 & 98.32 \\
+9 & 68 & 1.26 & 99.57 \\
+10 & 14 & 0.26 & 99.83 \\
+11 & 3 & 0.06 & 99.89 \\
+12 & 5 & 0.09 & 99.98 \\
+14 & 1 & 0.02 & 100.00 \\
+\midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[renttype]{\emph{Status of living}} \\
+\addlinespace[.5cm]
+\toprule
+renttype & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Owner & 2855 & 52.76 & 52.76 \\
+Main tenant & 2423 & 44.78 & 97.54 \\
+Subtenant & 117 & 2.16 & 99.70 \\
+Residential home & 16 & 0.30 & 100.00 \\
+\midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{15pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[H]
+\caption{\label{tab:rent}
+\emph{Rent minus heating costs in USD} (rent)}
+\begin{tabularx}{\linewidth}{@{} >{\raggedleft\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{2.5cm}@{}}
+\addlinespace[.5cm]
+\toprule
+Mean & Median & Mode & Min & Max & Std. D. \\
+\midrule
+602.85 & 551.00 & 493.00 & 39.00 & 4291.00 & 294.36\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[reval]{\emph{Adequacy of rent}} \\
+\addlinespace[.5cm]
+\toprule
+reval & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Very cheap & 178 & 3.29 & 3.29 \\
+Cheap & 580 & 10.72 & 14.01 \\
+Adequate & 1085 & 20.05 & 34.06 \\
+Too expensive & 451 & 8.33 & 42.40 \\
+Much too expensive & 55 & 1.02 & 43.41 \\
+Missings & 3062 & 56.59 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\newpage
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{6.1cm} p{3.5cm} >{\raggedleft\arraybackslash}p{2.5cm} .{2} .{2} }
+\caption[eqp]{\emph{Dwelling equipment}} \\
+\addlinespace[.5cm]
+\toprule
+eqp & & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+eqphea & & & \\
+Dwelling has central floor head & Yes & 5204 & 96.17 & 96.17 \\
+ & No & 205 & 3.79 & 99.96 \\
+ & Missings & 2 & 0.04 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+eqpter & & & \\
+Dwelling has balcony/terrace & Yes & 4314 & 79.73 & 79.73 \\
+ & No & 1092 & 20.18 & 99.91 \\
+ & Missings & 5 & 0.09 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+eqpbas & & & \\
+Dwelling has basement & Yes & 5153 & 95.23 & 95.23 \\
+ & No & 255 & 4.71 & 99.94 \\
+ & Missings & 3 & 0.06 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+eqpgar & & & \\
+Dwelling has garden & Yes & 3610 & 66.72 & 66.72 \\
+ & No & 1795 & 33.17 & 99.89 \\
+ & Missings & 6 & 0.11 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+eqpalm & & & \\
+Dwelling has alarm system & Yes & 189 & 3.49 & 3.49 \\
+ & No & 5209 & 96.27 & 99.76 \\
+ & Missings & 13 & 0.24 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+eqpsol & & & \\
+Dwelling has solar system & Yes & 393 & 7.26 & 7.26 \\
+ & No & 4993 & 92.27 & 99.54 \\
+ & Missings & 25 & 0.46 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+eqpair & & & \\
+Dwelling has air conditioner & Yes & 101 & 1.87 & 1.87 \\
+ & No & 5284 & 97.65 & 99.52 \\
+ & Missings & 26 & 0.48 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+eqplif & & & \\
+Dwelling has elevator & Yes & 320 & 5.91 & 5.91 \\
+ & No & 4986 & 92.15 & 98.06 \\
+ & Missings & 105 & 1.94 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+eqpnrj & & & \\
+Dwelling has alternative energy source & Yes & 109 & 2.01 & 2.01 \\
+ & No & 5176 & 95.66 & 97.67 \\
+ & Missings & 126 & 2.33 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+\addlinespace[-.4cm]
+\bottomrule
+\end{longtable}
+\newpage
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[hhtyp]{\emph{Household typology}} \\
+\addlinespace[.5cm]
+\toprule
+hhtyp & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+1-Pers.-HH & 908 & 16.78 & 16.78 \\
+Couple without children & 1832 & 33.86 & 50.64 \\
+Single parent & 310 & 5.73 & 56.37 \\
+Couple with children <= 16 & 853 & 15.76 & 72.13 \\
+Couple with children > 16 & 1026 & 18.96 & 91.09 \\
+Couple with children <= 16 and > 16 & 380 & 7.02 & 98.11 \\
+Other combination & 102 & 1.89 & 100.00 \\
+\midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[area1]{\emph{Residential area: type of house}} \\
+\addlinespace[.5cm]
+\toprule
+area1 & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Farm house & 179 & 3.31 & 3.31 \\
+1-2 Fam. House & 1959 & 36.20 & 39.51 \\
+1-2 Fam. Rowhouse & 931 & 17.21 & 56.72 \\
+Apt. in 3-4 Unit Bldg. & 510 & 9.43 & 66.14 \\
+Apt. in 5-8 Unit Bldg. & 969 & 17.91 & 84.05 \\
+Apt. in 9+ Unit Bldg. & 674 & 12.46 & 96.51 \\
+High Rise & 63 & 1.16 & 97.67 \\
+Other Building & 5 & 0.09 & 97.76 \\
+Missings & 121 & 2.24 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[area2]{\emph{Residential area: Rental Housing}} \\
+\addlinespace[.5cm]
+\toprule
+area2 & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Res. Area Old. & 1870 & 34.56 & 34.56 \\
+Res. Area New. & 2110 & 38.99 & 73.55 \\
+Mixed Res., Comm Area & 1223 & 22.60 & 96.16 \\
+Commercial Area & 29 & 0.54 & 96.69 \\
+Industrial Area & 18 & 0.33 & 97.02 \\
+Other & 6 & 0.11 & 97.14 \\
+Missings & 155 & 2.86 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{15pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{table}[H]
+\caption{\label{tab:dvisits}
+\emph{Number of annual doctor visits} (dvisits)}
+\begin{tabularx}{\linewidth}{@{} >{\raggedleft\arraybackslash}p{3.5cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{1.9cm} >{\raggedleft\arraybackslash}p{2.5cm}@{}}
+\addlinespace[.5cm]
+\toprule
+Mean & Median & Mode & Min & Max & Std. D. \\
+\midrule
+10.60 & 8.00 & 0.00 & 0.00 & 260.00 & 14.68\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[heval]{\emph{Current Self-Rated Health Status}} \\
+\addlinespace[.5cm]
+\toprule
+heval & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Very good & 422 & 7.80 & 7.80 \\
+Good & 2034 & 37.59 & 45.39 \\
+Satisfactory & 1889 & 34.91 & 80.30 \\
+Poor & 780 & 14.42 & 94.71 \\
+Bad & 208 & 3.84 & 98.56 \\
+Missings & 78 & 1.44 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[polint]{\emph{Political Interests}} \\
+\addlinespace[.5cm]
+\toprule
+polint & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Very much & 382 & 7.06 & 7.06 \\
+Much & 1437 & 26.56 & 33.62 \\
+Not much & 2481 & 45.85 & 79.47 \\
+Not at all & 1022 & 18.89 & 98.36 \\
+Missings & 89 & 1.64 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[pia]{\emph{Supports political party}} \\
+\addlinespace[.5cm]
+\toprule
+pia & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Yes & 2124 & 39.25 & 39.25 \\
+No & 3202 & 59.18 & 98.43 \\
+Missings & 85 & 1.57 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[pib]{\emph{Political party supported}} \\
+\addlinespace[.5cm]
+\toprule
+pib & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+SPD & 733 & 13.55 & 13.55 \\
+CDU/CSU & 795 & 14.69 & 28.24 \\
+FDP & 144 & 2.66 & 30.90 \\
+Greens/B90 & 211 & 3.90 & 34.80 \\
+Linke & 145 & 2.68 & 37.48 \\
+DVU, Rep., NPD & 32 & 0.59 & 38.07 \\
+Other parties & 29 & 0.54 & 38.61 \\
+Serveral parties & 12 & 0.22 & 38.83 \\
+Missings & 3310 & 61.17 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{8.3cm} >{\raggedleft\arraybackslash}p{4.5cm} .{2} .{2} }
+\caption[pic]{\emph{Amount of support for political party}} \\
+\addlinespace[.5cm]
+\toprule
+pic & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+Very strong & 135 & 2.49 & 2.49 \\
+Strong & 719 & 13.29 & 15.78 \\
+Moderate & 998 & 18.44 & 34.23 \\
+Fairly weak & 132 & 2.44 & 36.67 \\
+Very weak & 39 & 0.72 & 37.39 \\
+Missings & 3388 & 62.61 & 100.00 \\ \midrule Total & 5411 & 100.00 & \\
+\bottomrule
+\end{longtable}
+
+\vspace{2cm}
+
+\newpage
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}[H]{ p{6.1cm} p{3.5cm} >{\raggedleft\arraybackslash}p{2.5cm} .{2} .{2} }
+\caption[wor]{\emph{Worries}} \\
+\addlinespace[.5cm]
+\toprule
+wor & & Obs & \mc{Perc} & \mc{Cum} \\
+\midrule
+wor01 & & & \\
+Worried about economic development & Very concerned & 2404 & 44.43 & 44.43 \\
+ & Somewhat concerned & 2623 & 48.48 & 92.90 \\
+ & Not concerned at all & 298 & 5.51 & 98.41 \\
+ & Missings & 86 & 1.59 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+wor02 & & & \\
+Worried about finances & Very concerned & 1306 & 24.14 & 24.14 \\
+ & Somewhat concerned & 2842 & 52.52 & 76.66 \\
+ & Not concerned at all & 1169 & 21.60 & 98.26 \\
+ & Missings & 94 & 1.74 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+wor03 & & & \\
+Worried about stability of financial markets & Very concerned & 2591 & 47.88 & 47.88 \\
+ & Somewhat concerned & 2196 & 40.58 & 88.47 \\
+ & Not concerned at all & 512 & 9.46 & 97.93 \\
+ & Missings & 112 & 2.07 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+wor04 & & & \\
+Worried about own health & Very concerned & 1012 & 18.70 & 18.70 \\
+ & Somewhat concerned & 2861 & 52.87 & 71.58 \\
+ & Not concerned at all & 1452 & 26.83 & 98.41 \\
+ & Missings & 86 & 1.59 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+wor05 & & & \\
+Worried about environment & Very concerned & 1398 & 25.84 & 25.84 \\
+ & Somewhat concerned & 3204 & 59.21 & 85.05 \\
+ & Not concerned at all & 722 & 13.34 & 98.39 \\
+ & Missings & 87 & 1.61 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+wor06 & & & \\
+Worried about consequences from climate change & Very concerned & 1492 & 27.57 & 27.57 \\
+ & Somewhat concerned & 2982 & 55.11 & 82.68 \\
+ & Not concerned at all & 845 & 15.62 & 98.30 \\
+ & Missings & 92 & 1.70 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+wor07 & & & \\
+Worried about peace & Very concerned & 1613 & 29.81 & 29.81 \\
+ & Somewhat concerned & 2822 & 52.15 & 81.96 \\
+ & Not concerned at all & 891 & 16.47 & 98.43 \\
+ & Missings & 85 & 1.57 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+wor08 & & & \\
+Worried about global terrorism & Very concerned & 1845 & 34.10 & 34.10 \\
+ & Somewhat concerned & 2663 & 49.21 & 83.31 \\
+ & Not concerned at all & 811 & 14.99 & 98.30 \\
+ & Missings & 92 & 1.70 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+wor09 & & & \\
+Worried about crime in Germany & Very concerned & 1786 & 33.01 & 33.01 \\
+ & Somewhat concerned & 2728 & 50.42 & 83.42 \\
+ & Not concerned at all & 805 & 14.88 & 98.30 \\
+ & Missings & 92 & 1.70 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+wor10 & & & \\
+Worried about immigration to Germany & Very concerned & 1179 & 21.79 & 21.79 \\
+ & Somewhat concerned & 2354 & 43.50 & 65.29 \\
+ & Not concerned at all & 1777 & 32.84 & 98.13 \\
+ & Missings & 101 & 1.87 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+wor11 & & & \\
+Worried about hostility to foreigners & Very concerned & 1055 & 19.50 & 19.50 \\
+ & Somewhat concerned & 3008 & 55.59 & 75.09 \\
+ & Not concerned at all & 1237 & 22.86 & 97.95 \\
+ & Missings & 111 & 2.05 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+wor12 & & & \\
+Worried about job security & Very concerned & 483 & 8.93 & 8.93 \\
+ & Somewhat concerned & 1286 & 23.77 & 32.69 \\
+ & Not concerned at all & 1313 & 24.27 & 56.96 \\
+ & Missings & 2329 & 43.04 & 100.00 \\ \midrule
+ & Total & 5411 & 100.00 & \\
+\addlinespace[.5cm]
+\addlinespace[-.4cm]
+\bottomrule
+\end{longtable}
+\newpage
+\end{document}
