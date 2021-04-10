@@ -37,11 +37,11 @@ vignettes/*.pdf
 
 # R markdown output
 *.pdf
-*.tex
 *.aux
 *.log
 *.out
 *.synctex.gz
+report.tex
 
 # R Environment Variables
 .Renviron
