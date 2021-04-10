@@ -3,7 +3,7 @@
 
 ##### [Chair of Empirical Social Research Methods, University of Potsdam](https://uni-potsdam.de/soziologie-methoden)
 
-The Datatblr program generates a table volume containing the univariate description of all metric and categorical variables of a data set. Datatblr delivers the table volume as LaTeX and PDF file.
+Datatblr generates a table volume containing the univariate description of all metric and categorical variables of a data set. Datatblr delivers the table volume as TEX and PDF file.
 
 Datatblr is suitable for generating table volumes that typically appear in the appendix of research reports, or for the preparation of more detailed analysis.
 
