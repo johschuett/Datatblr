@@ -35,7 +35,7 @@ for (.el in type_n) {
 \\begin{tabularx}{\\linewidth}{@{} >{\\raggedleft\\arraybackslash}p{3.5cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{1.9cm} >{\\raggedleft\\arraybackslash}p{2.5cm}@{}}
 \\addlinespace[.5cm]
 \\toprule
-Mean & Median & Mode & Min & Max & St. dev. \\\\
+Mean & Median & Mode & Min & Max & Std. D. \\\\
 \\midrule\n",
 mean_value, " & ", median_value, " & ", mode_value, " & ", min_value, " & ", max_value, " & ", sd_value, "\\\\
 \\bottomrule

@@ -14,6 +14,14 @@ Sys.setlocale("LC_ALL", "en_US.UTF-8")
 library(dplyr, warn.conflicts = FALSE)  # Version 1.0.0
 library(rio, warn.conflicts = FALSE)    # Version 0.5.16
 
+# Define is_empty() function
+is_empty <- function(x, na.ignore = FALSE) {
+  if (na.ignore)
+    ifelse(is.na(x), return(FALSE), return(trimws(x) == ""))
+  else
+    return(trimws(x) == "")
+}
+
 # Define %!in% operator
 '%!in%' <- function(x, y)!('%in%'(x, y))
 

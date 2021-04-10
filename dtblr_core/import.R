@@ -11,8 +11,8 @@ for (.row in seq_len(nrow(job))) {
 
 # Import data from file
 data <- rio::import(data_file)
-# Convert missing entries to NAs
-data[data == ""] <- NA
+# Convert empty entries to NAs
+data[sapply(data, is_empty)] <- NA
 # Import metadata from file
 meta <- rio::import(meta_file)
 # Convert missing value to integer
@@ -24,9 +24,9 @@ line_of_title <- which(meta$name == "surveyls_title")
 if (is.integer(line_of_title) && length(line_of_title) == 0L) {
   survey_title <- "Untitled"
 } else if (is.vector(line_of_title)) {
-  survey_title <- meta[line_of_title[1], 5]
+  survey_title <- meta[line_of_title[1], "text"]
 } else {
-  survey_title <- meta[line_of_title, 5]
+  survey_title <- meta[line_of_title, "text"]
 }
 
 # Information about the survey variables
@@ -37,9 +37,9 @@ var_name <- c()
 var_row <- c()
 
 for (.row in seq_len(nrow(meta))) {
-  if (meta[.row, 2] == "Q") {
-    var_type[length(var_type) + 1] <- tolower(meta[.row, 3])
-    var_name[length(var_name) + 1] <- meta[.row, 4]
+  if (meta[.row, "class"] == "Q") {
+    var_type[length(var_type) + 1] <- tolower(meta[.row, "type/scale"])
+    var_name[length(var_name) + 1] <- meta[.row, "name"]
     var_row[length(var_row) + 1] <- which(meta$name == var_name[length(var_name)]) # Where does the survey variable START in the meta data-frame?
   }
 }
@@ -49,7 +49,7 @@ last_row <- c()
 for (.el in var_row) {
   repeat {
     .el <- .el + 1
-    if (any(meta[.el, 2] %!in% c("A", "SQ"))) {
+    if (any(meta[.el, "class"] %!in% c("A", "SQ"))) {
       .el <- .el - 1 # It hit the last row, so go one iteration back and break
       break
     }
@@ -79,10 +79,10 @@ for (.el in var_type) {
   repeat {
     if (.i == (last_row[.a] + 1)) break
 
-    class[.b] <- meta[.i, 2]
-    type[.b] <- meta[.i, 3]
-    name[.b] <- meta[.i, 4]
-    text[.b] <- meta[.i, 5]
+    class[.b] <- meta[.i, "class"]
+    type[.b] <- meta[.i, "type/scale"]
+    name[.b] <- meta[.i, "name"]
+    text[.b] <- meta[.i, "text"]
 
     .b <- .b + 1
     .i <- .i + 1

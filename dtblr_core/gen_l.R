@@ -89,7 +89,7 @@ sep = "")
 \\caption[", table_title, "]{\\emph{", table_label, "}} \\\\
 \\addlinespace[.5cm]
 \\toprule\n",
-table_title, " & Obs. & \\mc{Perc.} & \\mc{Cum.} \\\\
+table_title, " & Obs & \\mc{Perc} & \\mc{Cum} \\\\
 \\midrule\n",
 pack,
 "\n\\bottomrule
